@@ -11,10 +11,10 @@
                       v-for="(item, idx) in notifications"
                       :key="idx"
                       :name="item.name"
-                      :description="item.description"
+                      :price="item.price"
                       :icon="item.icon"
                       :color="item.color"
-                      :time="item.time"
+                      :mode="item.mode"
                   />
                 </template>
               </AnimatedList>
@@ -181,12 +181,13 @@
               <div class="relative">
                 <div
                     class="relative border-[10px] border-[#123061] overflow-hidden bg-gradient-to-b from-background to-[hsl(var(--page-background))] rounded-[23px]  p-10 py-16">
-                  <div class="flex items-start gap-16">
+                  <div class="flex flex-col lg:flex-row gap-10 items-start lg:gap-16">
                     <img class="h-22 mb-16" src="/swif_transactions.svg" alt="Swift Transactions">
                     <div class="">
                       <h3 class="text-4xl mb-12 font-semibold">Swift transactions</h3>
                       <p class="text-3xl">We know how much you hate to wait. Enjoy the power of instant payment on
-                        SenexPay.</p>
+                        SenexPay.
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -194,7 +195,7 @@
               <div class="relative">
                 <div
                     class="relative border-[10px] border-[#123061] flex h-full flex-col overflow-hidden bg-gradient-to-b from-background to-[hsl(var(--page-background))] rounded-[23px] p-10 py-16">
-                  <div class="flex items-start gap-16">
+                  <div class="flex flex-col lg:flex-row gap-10 items-start lg:gap-16">
                     <img class="h-22 mb-16" src="/support.svg" alt="Award-winning Support">
                     <div class="">
                       <h3 class="text-4xl mb-12 font-semibold">Award-winning Support</h3>
@@ -399,45 +400,45 @@ const selectedCountry = ref(countries[0])
 const notifications = [
   {
     name: "Bitcoin (BTC)",
-    description: "Inspira UI",
-    time: "Buy",
-    icon: "💸",
-    color: "#00C9A7",
+    price: "0.0123",
+    mode: "Buy",
+    icon: "btc",
+    color: "#f7931a",
   },
   {
     name: "Tether (USDT)",
-    description: "Inspira UI",
-    time: "Sell",
-    icon: "👤",
-    color: "#FFB800",
+    price: "Inspira UI",
+    mode: "Sell",
+    icon: "usdt",
+    color: "#26a17b",
   },
   {
     name: "Tron (TRX)",
-    description: "Inspira UI",
-    time: "Buy",
-    icon: "💬",
-    color: "#FF3D71",
+    price: "Inspira UI",
+    mode: "Buy",
+    icon: "trx",
+    color: "#ef0027",
   },
   {
     name: "Bitcoin (BTC)",
-    description: "Inspira UI",
-    time: "Sell",
-    icon: "💸",
-    color: "#00C9A7",
+    price: "Inspira UI",
+    mode: "Sell",
+    icon: "btc",
+    color: "#f7931a",
   },
   {
     name: "Tether (USDT)",
-    description: "Inspira UI",
-    time: "Buy",
-    icon: "👤",
-    color: "#FFB800",
+    price: "Inspira UI",
+    mode: "Buy",
+    icon: "usdt",
+    color: "#26a17b",
   },
   {
     name: "Tron (TRX)",
-    description: "Inspira UI",
-    time: "Sell",
-    icon: "💬",
-    color: "#FF3D71",
+    price: "Inspira UI",
+    mode: "Sell",
+    icon: "trx",
+    color: "#ef0027",
   },
 ];
 

@@ -17,15 +17,15 @@
           class="flex size-10 items-center justify-center rounded-2xl"
           :style="`background-color: ${color}`"
       >
-        <span class="text-lg">{{ icon }}</span>
+        <img :src="`/${icon}.svg`" :alt="name">
       </div>
       <div class="flex flex-col overflow-hidden">
         <div class="flex flex-row items-center whitespace-pre text-lg font-medium dark:text-white">
           <span class="text-sm sm:text-lg">{{ name }}</span>
           <span class="mx-1">·</span>
-          <span class="text-xs text-gray-500">{{ time }}</span>
+          <span class="text-xs" :class="mode.toLocaleLowerCase() === 'buy' ? 'text-[#26a17b]' : 'text-[#ef0027]'">{{ mode }}</span>
         </div>
-        <p class="text-sm font-normal dark:text-white/60">{{ description }}</p>
+        <p class="text-sm font-normal dark:text-white/60">{{ price }}</p>
       </div>
     </div>
   </div>
@@ -36,16 +36,16 @@ import { cn } from "@/lib/utils";
 
 type NotificationProps = {
   name: string;
-  description: string;
-  time: string;
+  price: string;
+  mode: string;
   icon: string;
   color: string;
 };
 
 withDefaults(defineProps<NotificationProps>(), {
   name: "",
-  description: "",
-  time: "",
+  price: "",
+  mode: "",
   icon: "",
   color: "",
 });

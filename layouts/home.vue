@@ -53,32 +53,23 @@ const div7Ref = ref(null);
             <div class="flex flex-row items-center justify-between">
               <div
                   ref="div1Ref"
-                  class="z-10 flex size-12 items-center justify-center rounded-full border-2 bg-white p-2 shadow-[0_0_20px_-12px_rgba(0,0,0,0.8)] dark:text-black"
+                  class="z-10 flex size-12 items-center justify-center rounded-full shadow-[0_0_20px_-12px_rgba(0,0,0,0.8)] text-foreground"
               >
-                <Icon
-                    name="devicon:googlecloud"
-                    size="24"
-                />
+                <img src="/btc.svg" alt="Bitcoin icon" class="size-[38px]">
               </div>
               <div
                   ref="div5Ref"
-                  class="z-10 flex size-12 items-center justify-center rounded-full border-2 bg-white p-2 shadow-[0_0_20px_-12px_rgba(0,0,0,0.8)]"
+                  class="z-10 flex size-12 items-center justify-center rounded-full text-foreground shadow-[0_0_20px_-12px_rgba(0,0,0,0.8)]"
               >
-                <Icon
-                    name="logos:google-drive"
-                    size="24"
-                />
+                <img src="/usdt.svg" alt="Tether icon" class="size-[38px]">
               </div>
             </div>
             <div class="flex flex-row items-center justify-between">
               <div
                   ref="div2Ref"
-                  class="z-10 flex size-12 items-center justify-center rounded-full border-2 bg-white p-2 shadow-[0_0_20px_-12px_rgba(0,0,0,0.8)] dark:text-black"
+                  class="z-10 flex size-12 items-center justify-center rounded-full shadow-[0_0_20px_-12px_rgba(0,0,0,0.8)] text-foreground"
               >
-                <Icon
-                    name="logos:notion-icon"
-                    size="24"
-                />
+                <img src="/trx.svg" alt="Tron icon" class="size-[38px]">
               </div>
               <div
                   ref="div4Ref"
@@ -93,32 +84,23 @@ const div7Ref = ref(null);
               </div>
               <div
                   ref="div6Ref"
-                  class="z-10 flex size-12 items-center justify-center rounded-full border-2 bg-white p-2 shadow-[0_0_20px_-12px_rgba(0,0,0,0.8)]"
+                  class="z-10 flex size-12 items-center justify-center rounded-full text-foreground shadow-[0_0_20px_-12px_rgba(0,0,0,0.8)]"
               >
-                <Icon
-                    name="logos:google-gmail"
-                    size="24"
-                />
+                <img src="/ltc.svg" alt="Litecoin icon" class="size-[38px]">
               </div>
             </div>
             <div class="flex flex-row items-center justify-between">
               <div
                   ref="div3Ref"
-                  class="z-10 flex size-12 items-center justify-center rounded-full border-2 bg-white p-2 shadow-[0_0_20px_-12px_rgba(0,0,0,0.8)] dark:text-black"
+                  class="z-10 flex size-12 items-center justify-center rounded-full text-foreground shadow-[0_0_20px_-12px_rgba(0,0,0,0.8)] text-foreground"
               >
-                <Icon
-                    name="logos:whatsapp-icon"
-                    size="24"
-                />
+                <img src="/xlm.svg" alt="Stellar icon" class="size-[38px]">
               </div>
               <div
                   ref="div7Ref"
-                  class="z-10 flex size-12 items-center justify-center rounded-full border-2 bg-white p-2 shadow-[0_0_20px_-12px_rgba(0,0,0,0.8)]"
+                  class="z-10 flex size-12 items-center justify-center rounded-full text-foreground shadow-[0_0_20px_-12px_rgba(0,0,0,0.8)]"
               >
-                <Icon
-                    name="logos:messenger"
-                    size="24"
-                />
+                <img src="/bnb.svg" alt="Binance coin icon" class="size-[38px]">
               </div>
             </div>
           </div>

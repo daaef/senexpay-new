@@ -55,13 +55,13 @@ import Logo from "assets/icons/logo.svg";
 
 const navigation = {
   support: [
-    {name: 'FAQs', href: '#'},
-    {name: 'Contact Us', href: '#'},
+    {name: 'FAQs', href: '/faq'},
+    {name: 'Contact Us', href: '/contact'},
   ],
   company: [
-    {name: 'About', href: '#'},
-    {name: 'Blog', href: '#'},
-    {name: 'Career', href: '#'},
+    {name: 'About', href: '/about'},
+    {name: 'Blog', href: 'https://blog.senexpay.com'},
+    {name: 'Career', href: '/careers'},
   ],
   legal: [
     {name: 'Terms of service', href: '#'},
@@ -70,7 +70,7 @@ const navigation = {
   social: [
     {
       name: 'Facebook',
-      href: '#',
+      href: 'https://web.facebook.com/senexpay/',
       icon: defineComponent({
         render: () =>
             h('svg', {fill: 'currentColor', viewBox: '0 0 24 24'}, [
@@ -84,7 +84,7 @@ const navigation = {
     },
     {
       name: 'Instagram',
-      href: '#',
+      href: 'https://www.instagram.com/senexpay/',
       icon: defineComponent({
         render: () =>
             h('svg', {fill: 'currentColor', viewBox: '0 0 24 24'}, [
@@ -98,7 +98,7 @@ const navigation = {
     },
     {
       name: 'X',
-      href: '#',
+      href: 'https://twitter.com/senexpay/',
       icon: defineComponent({
         render: () =>
             h('svg', {fill: 'currentColor', viewBox: '0 0 24 24'}, [
@@ -110,7 +110,7 @@ const navigation = {
     },
     {
       name: 'LinkedIn',
-      href: '#',
+      href: 'https://linkedin.com/company/senexpay/',
       icon: defineComponent({
         render: () =>
             h('svg', {fill: 'currentColor', viewBox: '0 0 30 30'}, [
@@ -122,13 +122,9 @@ const navigation = {
             ]),
       }),
     },
-    /*<svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M27.8568 0H2.13942C1.569 0.00334381 1.02325 0.233019 0.622092 0.638554C0.220933 1.04409 -0.00280783 1.5923 3.7352e-05 2.16272V27.8353C-0.00162768 28.1179 0.0523889 28.3981 0.159003 28.6598C0.265617 28.9216 0.42274 29.1597 0.621401 29.3608C0.820062 29.5618 1.05637 29.7217 1.31683 29.8314C1.5773 29.941 1.85681 29.9983 2.13942 30H27.8607C28.4306 29.9951 28.9754 29.765 29.3763 29.3598C29.7771 28.9546 30.0013 28.4072 30 27.8373V2.16272C30.0013 1.5921 29.7766 1.04419 29.3749 0.638881C28.9732 0.23357 28.4274 0.00385583 27.8568 0ZM9.06714 25.7144H4.62013V11.3971H9.07394V25.7144H9.06714ZM6.84412 9.44149C6.33425 9.44149 5.83583 9.2903 5.41189 9.00703C4.98794 8.72376 4.65752 8.32113 4.4624 7.85007C4.26728 7.37901 4.21623 6.86067 4.3157 6.3606C4.41517 5.86052 4.6607 5.40118 5.02123 5.04064C5.38176 4.68011 5.84111 4.43458 6.34119 4.33511C6.84126 4.23564 7.3596 4.28669 7.83066 4.48181C8.30172 4.67693 8.70434 5.00735 8.98761 5.4313C9.27088 5.85524 9.42208 6.35366 9.42208 6.86353C9.42182 7.54717 9.15013 8.20273 8.66673 8.68614C8.18332 9.16954 7.52776 9.44123 6.84412 9.44149ZM25.7339 25.7144H21.2879V18.7498C21.2879 17.0888 21.2548 14.9572 18.9773 14.9572C16.66 14.9572 16.3051 16.765 16.3051 18.6331V25.7183H11.8639V11.3971H16.129V13.3527H16.1893C16.6173 12.6231 17.2348 12.0231 17.9764 11.6163C18.7179 11.2095 19.5558 11.0111 20.401 11.0421C24.9005 11.0421 25.7378 14.0091 25.7378 17.8658L25.7339 25.7144Z" fill="#B4B4B4"/>
-    </svg>*/
-
     {
       name: 'YouTube',
-      href: '#',
+      href: 'https://www.youtube.com/@senexpayhq',
       icon: defineComponent({
         render: () =>
             h('svg', {fill: 'currentColor', viewBox: '0 0 24 24'}, [
