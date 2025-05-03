@@ -1,0 +1,148 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: 'SF Pro Rounded';
+    src: url('../fonts/SF-Pro-Rounded-Ultralight.otf') format('opentype');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'SF Pro Rounded';
+    src: url('../fonts/SF-Pro-Rounded-Thin.otf') format('opentype');
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'SF Pro Rounded';
+    src: url('../fonts/SF-Pro-Rounded-Light.otf') format('opentype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'SF Pro Rounded';
+    src: url('../fonts/SF-Pro-Rounded-Regular.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'SF Pro Rounded';
+    src: url('../fonts/SF-Pro-Rounded-Medium.otf') format('opentype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'SF Pro Rounded';
+    src: url('../fonts/SF-Pro-Rounded-Semibold.otf') format('opentype');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'SF Pro Rounded';
+    src: url('../fonts/SF-Pro-Rounded-Bold.otf') format('opentype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'SF Pro Rounded';
+    src: url('../fonts/SF-Pro-Rounded-Heavy.otf') format('opentype');
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'SF Pro Rounded';
+    src: url('../fonts/SF-Pro-Rounded-Black.otf') format('opentype');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+:root {
+    --page-background: 0 0% 98%; /* #000A18, for html/body */
+    --border: 227 56% 24%; /* #053889, dark text color for borders */
+    --input: 0 0% 98%; /* #fafafa, near-white for inputs */
+    --ring: 216 87% 63%; /* #4085F2, secondary color for focus rings */
+    --background: 0 0% 100%; /* #ffffff, main background */
+    --foreground: 227 56% 24%; /* #053889, dark text */
+    --primary: 267 100% 62%; /* #864FFF, gradient color */
+    --primary-foreground: 0 0% 98%; /* #fafafa, white text */
+    --secondary: 216 87% 63%; /* #4085F2, secondary gradient */
+    --secondary-foreground: 0 0% 98%; /* #fafafa, white text */
+    --destructive: 0 84% 60%; /* Red for destructive actions */
+    --destructive-foreground: 0 0% 98%; /* #fafafa */
+    --muted: 227 56% 40%; /* Lighter #053889 for muted elements */
+    --muted-foreground: 227 56% 50%; /* Slightly lighter #053889 */
+    --accent: 216 87% 63%; /* #4085F2, secondary color */
+    --accent-foreground: 0 0% 98%; /* #fafafa */
+    --popover: 0 0% 100%; /* #ffffff, same as background */
+    --popover-foreground: 227 56% 24%; /* #053889 */
+    --card: 0 0% 100%; /* #ffffff, same as background */
+    --card-foreground: 227 56% 24%; /* #053889 */
+    --radius: 0.5rem; /* Default radius */
+}
+
+.dark {
+    --page-background: 210 100% 4.7%; /* #000A18, for html/body */
+    --border: 0 0% 98%; /* #fafafa, white for borders */
+    --input: 221 56% 20%; /* Lighter #041D45 for inputs */
+    --ring: 267 100% 62%; /* #864FFF, primary color for focus rings */
+    --background: 221 56% 16%; /* #041D45, main background */
+    --foreground: 0 0% 98%; /* #fafafa, white text */
+    --primary: 267 100% 62%; /* #864FFF, gradient color */
+    --primary-foreground: 0 0% 98%; /* #fafafa, white text */
+    --secondary: 216 87% 63%; /* #4085F2, secondary gradient */
+    --secondary-foreground: 0 0% 98%; /* #fafafa, white text */
+    --destructive: 0 84% 60%; /* Red for destructive actions */
+    --destructive-foreground: 0 0% 98%; /* #fafafa */
+    --muted: 221 56% 30%; /* Lighter #041D45 for muted elements */
+    --muted-foreground: 221 56% 40%; /* Slightly lighter #041D45 */
+    --accent: 216 87% 63%; /* #4085F2, secondary color */
+    --accent-foreground: 0 0% 98%; /* #fafafa */
+    --popover: 221 56% 16%; /* #041D45, same as background */
+    --popover-foreground: 0 0% 98%; /* #fafafa */
+    --card: 221 56% 16%; /* #041D45, same as background */
+    --card-foreground: 0 0% 98%; /* #fafafa */
+    --radius: 0.5rem; /* Default radius */
+}
+
+html, body {
+    background-color: hsl(var(--page-background));
+}
+
+@layer utilities {
+    .gradient-border {
+        position: relative;
+        border: 2px solid transparent; /* Reserves space for the gradient border */
+        background-clip: padding-box; /* Ensures background stays inside border */
+        background-origin: border-box; /* Fallback for older browsers */
+    }
+    .gradient-border::before {
+        content: '';
+        position: absolute;
+        top: -2px; /* Extends 2px beyond to form border */
+        left: -2px;
+        right: -2px;
+        bottom: -2px;
+        background: linear-gradient(to right, #4085F2, #A26DFF); /* Gradient border */
+        border-radius: 27px; /* Matches rounded-[25px] + 2px border */
+        z-index: -1; /* Places gradient behind the element */
+    }
+}
+
