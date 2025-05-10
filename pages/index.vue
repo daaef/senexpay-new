@@ -366,7 +366,7 @@ const testimonies = ref<Testimonial[]>(testimonials)
 onMounted(async () => {
   colorMode.preference = 'dark';
 
-  await useFetch(`${config.public.api_url}/testimonials/`).then((res) => {
+  await useFetch(`${config.public.apiUrl}/testimonials/`).then((res) => {
     console.log('res.data is', res.data.value)
     testimonies.value = res.data.value
   })
@@ -446,7 +446,7 @@ import { rand } from "@vueuse/core";
 import type {Testimonial} from "~/components/TestimonialSlider.vue";
 
 const config = useRuntimeConfig()
-console.log('config', config.public.api_url)
+console.log('config', config.public.apiUrl)
 
 function getRandomNumber() {
   return rand(1, 99);

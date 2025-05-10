@@ -131,8 +131,8 @@ export default defineNuxtConfig({
     // The private keys which are only available within server-side
     // Keys within public, will be also exposed to the client-side
     public: {
-      api_url: process.env.NUXT_PUBLIC_API_URL || "https://api.senexpay.com",
-      siteUrl: process.env.NUXT_PUBLIC_SITE_URL || "https://senexpay.com",
+      apiUrl: "https://api.senexpay.com",
+      siteUrl: "https://senexpay.com",
       language: "en", // prefer more explicit language codes like `en-AU` over `en`
     },
   },

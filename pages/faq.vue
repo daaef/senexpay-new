@@ -20,16 +20,11 @@
   </section>
 </template>
 <script setup lang="ts">
+
+import type { Faq } from "~/types/Faq";
 const colorMode = useColorMode();
 const config = useRuntimeConfig();
 
-interface Faq {
-  id: number;
-  number: number;
-  category: number;
-  question: string;
-  answer: string;
-}
 
 const faqs = ref<Faq[]>([]);
 const activeAnswer = ref(null);
@@ -40,7 +35,7 @@ watch(selectedTab, () => {
 });
 
 const getFaqs = async () => {
-  await useFetch(`${config.public.api_url}/faqs/`).then((res) => {
+  await useFetch(`${config.public.apiUrl}/faqs/`).then((res) => {
     console.log('res.data is', res.data.value);
     faqs.value = res.data.value as Faq[];
   });
@@ -83,6 +78,8 @@ const groupedFaqs = computed(() => {
 });
 
 onMounted(async () => {
+  console.log('config', config.public.apiUrl)
+  console.log('fetching faqs')
   await getFaqs()
   colorMode.preference = 'dark';
 })
