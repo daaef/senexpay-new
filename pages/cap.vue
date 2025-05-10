@@ -1,6 +1,6 @@
 <template>
   <!-- Hero Section -->
-  <section class="pb-[60px] pt-[120px] bg-gradient-to-b from-[hsl(var(--page-background))]/70 to-background relative">
+  <section class="pb-[60px] pt-[120px] min-h-[80vh] bg-gradient-to-b from-[hsl(var(--page-background))]/70 to-background relative">
     <div class="container relative z-10">
       <div class="grid grid-cols-1 lg:grid-cols-[0.55fr_0.45fr] py-20">
         <div class="w-full p-8 lg:p-20 text-white flex items-center justify-start">
@@ -14,7 +14,7 @@
             </p>
           </div>
         </div>
-        <div class="bg-white rounded-3xl p-3 h-[calc(100vh-240px)] lg:h-auto">
+        <div class="h-[calc(100vh-240px)] lg:h-[60vh]">
           <iframe
               src="https://docs.google.com/forms/d/e/1FAIpQLSepzro27fVOHBu6cbtmF-rGdxrr-_c886db9Wl3ertAtN7Dsg/viewform?embedded=true"
               class="w-full h-full rounded-xl"

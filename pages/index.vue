@@ -251,7 +251,7 @@
             digital financial revolution in Africa as a student representative on your campus.
           </p>
           <div class="flex items-center mt-8">
-            <nuxt-link href="/"
+            <nuxt-link href="/cap"
                        class="text-2xl font-medium bg-gradient-to-r from-custom-purple to-custom-blue text-transparent bg-clip-text">
               Apply here
             </nuxt-link>
