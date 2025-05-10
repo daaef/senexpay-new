@@ -15,7 +15,7 @@
                 :key="`image-${index}`"
                 class="absolute inset-0 -z-10 flex h-full flex-col"
             >
-              <NuxtImg
+              <img
                   class="relative left-1/2 top-11 -translate-x-1/2 rounded-full"
                   :src="testimonial.photo"
                   width="60"

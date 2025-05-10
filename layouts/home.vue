@@ -38,9 +38,9 @@ const div7Ref = ref(null);
           <p class="text-4xl text-foreground font-light">Effortlessly trade, store, and secure crypto assets in one
             app.</p>
           <div class="inline-grid grid-cols-3 gap-5">
-            <NuxtImg src="/qr.svg" alt="Qr code" class="h-10"/>
-            <NuxtImg src="/apple.svg" alt="Apple store Badge" class="h-10"/>
-            <NuxtImg src="/playstore.svg" alt="Google Play Badge" class="h-10"/>
+            <img src="/qr.svg" alt="Qr code" class="h-10"/>
+            <img src="/apple.svg" alt="Apple store Badge" class="h-10"/>
+            <img src="/playstore.svg" alt="Google Play Badge" class="h-10"/>
           </div>
         </div>
         <div
@@ -75,7 +75,7 @@ const div7Ref = ref(null);
                   ref="div4Ref"
                   class="z-10 flex h-[400px] w-[200px]]"
               >
-                <NuxtImg
+                <img
                     class="h-[400px] w-[200px] object-contain"
                     src="/open-menu.png"
                     alt="hero"
@@ -156,14 +156,14 @@ const div7Ref = ref(null);
           <h3 class="text-6xl font-bold">Get the SenexPay mobile now!</h3>
           <p class="mb-5 font-light text-xl mt-4">Get smarter and faster access right on your mobile phone.</p>
           <div class="inline-grid grid-cols-3 gap-5">
-            <NuxtImg src="/qr.svg" alt="Qr code" class="h-10"/>
-            <NuxtImg src="/apple.svg" alt="Apple store Badge" class="h-10"/>
-            <NuxtImg src="/playstore.svg" alt="Google Play Badge" class="h-10"/>
+            <img src="/qr.svg" alt="Qr code" class="h-10"/>
+            <img src="/apple.svg" alt="Apple store Badge" class="h-10"/>
+            <img src="/playstore.svg" alt="Google Play Badge" class="h-10"/>
           </div>
         </div>
         <div class="flex relative items-center min-h-[600px] gap-6">
           <Ripple circle-class="border-foreground h-[400px] rounded-full"/>
-          <NuxtImg src="/phone-img.png" class="relative h-[450px]" alt="Phone Image"/>
+          <img src="/phone-img.png" class="relative h-[450px]" alt="Phone Image"/>
         </div>
       </div>
     </section>

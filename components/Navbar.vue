@@ -60,7 +60,7 @@ onUnmounted(() => {
           <!-- Logo -->
           <div class="flex-shrink-0">
             <a href="/" class="text-xl font-bold text-primary">
-<!--              <NuxtImg src="/logo.svg" alt="Senexpay Logo" class="h-6 fill-foreground"/>-->
+<!--              <img src="/logo.svg" alt="Senexpay Logo" class="h-6 fill-foreground"/>-->
               <Logo src="/logo.svg" alt="Senexpay Logo" class="!h-6 !w-auto !text-foreground"/>
             </a>
           </div>

@@ -64,8 +64,8 @@ const navigation = {
     {name: 'Career', href: '/careers'},
   ],
   legal: [
-    {name: 'Terms of service', href: '#'},
-    {name: 'Privacy policy', href: '#'}
+    {name: 'Terms of service', href: '/terms'},
+    {name: 'Privacy policy', href: '/privacy'},
   ],
   social: [
     {

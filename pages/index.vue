@@ -114,7 +114,7 @@
           </div>
         </div>
         <div>
-          <NuxtImg src="/security.png" alt="Security"/>
+          <img src="/security.png" alt="Security"/>
         </div>
       </div>
     </section>
@@ -123,10 +123,10 @@
         <div
             class="px-4 py-6 bg-gradient-to-b from-[hsl(var(--page-background))]/0 to-background rounded-[23px] grid lg:grid-cols-2 gap-10 items-stretch">
           <div>
-            <NuxtImg src="/senex-plus.png" alt="SenexPlus Image"/>
+            <img src="/senex-plus.png" alt="SenexPlus Image"/>
           </div>
           <div class="relative flex items-center">
-            <NuxtImg class="absolute top-[20px] h-8 right-[20px]" src="/senex+.png" alt="SenexPlus Logo"/>
+            <img class="absolute top-[20px] h-8 right-[20px]" src="/senex+.png" alt="SenexPlus Logo"/>
             <div>
               <h3 class="text-5xl mb-6 font-semibold">Enjoy VIP banking with SenexPlus</h3>
               <p class="text-2xl">
@@ -155,7 +155,7 @@
           <p class="text-lg text-center mb-20">Get a full bird's-eye view of all your crypto activities on the
             dashboard.
           </p>
-          <NuxtImg src="/dashboard.png" alt="Dashboard Image"/>
+          <img src="/dashboard.png" alt="Dashboard Image"/>
         </div>
       </section>
       <section class="relative py-[60px] bg-center bg-contain bg-no-repeat"
@@ -225,7 +225,7 @@
         <div
             class="p-10 bg-background border-[10px] text-2xl border-[#123061] rounded-[23px] items-center flex flex-col gap-10">
           <h3 class="w-full text-4xl">Talk to a <span class="font-[800]">Crypto Advisor</span></h3>
-          <NuxtImg src="/crypto-advisor.png" alt="Crypto Advisor"/>
+          <img src="/crypto-advisor.png" alt="Crypto Advisor"/>
           <div class="w-full">
             <p class="text-md">Every Thursday 8:00-9:00 PM</p>
             <p class="text-md">Get expert answers to all your crypto questions.</p>
@@ -242,7 +242,7 @@
     <section class="min-h-[80vh] py-[60px] bg-gradient-to-b from-background to-[hsl(var(--page-background))]/0">
       <div class="container grid lg:grid-cols-2 gap-10 items-center">
         <div>
-          <NuxtImg src="/capBg.png" alt="Campus Ambassador image"/>
+          <img src="/capBg.png" alt="Campus Ambassador image"/>
         </div>
         <div class="">
           <h3 class="text-5xl mb-6 font-semibold">Supercharge your career!</h3>
@@ -276,7 +276,7 @@
           <input id="toggle_Referral" hidden type="checkbox" />
           <div class="">
             <label for="toggle_Referral">
-              <NuxtImg src="/referral.png" alt="Referral Image"/>
+              <img src="/referral.png" alt="Referral Image"/>
             </label>
           </div>
         </div>

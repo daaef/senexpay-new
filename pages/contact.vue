@@ -110,7 +110,8 @@
         </div>
       </form>
     </div>
-  </section>
+  </section
+      class="relative isolate pb-[60px] pt-[120px] bg-gradient-to-b from-[hsl(var(--page-background))]/0 to-background">
 </template>
 <script setup lang="ts">
 import {BuildingOffice2Icon, EnvelopeIcon, PhoneIcon} from '@heroicons/vue/24/outline'

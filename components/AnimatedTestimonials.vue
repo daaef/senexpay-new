@@ -34,7 +34,7 @@
               }"
                 class="absolute inset-0 origin-bottom"
             >
-              <NuxtImg
+              <img
                   :src="testimonial.image"
                   :alt="testimonial.name"
                   width="500"

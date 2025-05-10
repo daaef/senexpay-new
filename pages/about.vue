@@ -68,22 +68,22 @@
       <h3 class="text-center text-4xl font-bold">Our Core Values</h3>
       <div class="grid grid-cols-3  max-w-[800px] mx-auto gap-10 mt-14">
         <div class="">
-          <NuxtImg src="/live-bold.svg" class="h-20 mx-auto" alt="Live Bold Icon"/>
+          <img src="/live-bold.svg" class="h-20 mx-auto" alt="Live Bold Icon"/>
           <h3 class="text-center text-2xl font-bold mt-4">Live Bold</h3>
         </div>
         <div class="">
-          <NuxtImg src="/lead-change.svg" class="h-20 mx-auto" alt="Lead Change Icon"/>
+          <img src="/lead-change.svg" class="h-20 mx-auto" alt="Lead Change Icon"/>
           <h3 class="text-center text-2xl font-bold mt-4">Lead Change</h3>
         </div>
         <div class="">
-          <NuxtImg src="/inspire-hope.svg" class="h-20 mx-auto" alt="Inspire Hope Icon"/>
+          <img src="/inspire-hope.svg" class="h-20 mx-auto" alt="Inspire Hope Icon"/>
           <h3 class="text-center text-2xl font-bold mt-4">Inspire Hope</h3>
         </div>
       </div>
       <div class="h-[1px] bg-gradient-to-r  from-custom-purple to-custom-blue w-full my-16 opacity-45"/>
       <div class="flex flex-col gap-8">
         <div class="grid grid-cols-[122px_1fr] gap-6 items-center">
-          <NuxtImg src="/mission.svg" class="h-20 mx-auto" alt="Mission Icon"/>
+          <img src="/mission.svg" class="h-20 mx-auto" alt="Mission Icon"/>
           <div class="">
             <h3 class="text-2xl font-bold mt-4">Mission</h3>
             <p class="text-2xl"> Enabling equal global participation for Africans through the widespread use of
@@ -91,7 +91,7 @@
           </div>
         </div>
         <div class="grid grid-cols-[122px_1fr] gap-6 items-center">
-          <NuxtImg src="/vision.svg" class="h-20 mx-auto" alt="Vision Icon"/>
+          <img src="/vision.svg" class="h-20 mx-auto" alt="Vision Icon"/>
           <div class="">
             <h3 class="text-2xl font-bold mt-4">Vision</h3>
             <p class="text-2xl"> Our vision is to make financial services seamless for every person on the globe.
@@ -107,7 +107,7 @@
           class="px-4 py-6 grid lg:grid-cols-2 gap-10 items-stretch">
         <div>
           <div class="relative">
-            <NuxtImg src="/oke.jpg" class="object-cover object-top rounded-[23px] border-[10px] border-accent/30"
+            <img src="/oke.jpg" class="object-cover object-top rounded-[23px] border-[10px] border-accent/30"
                      alt="SenexPlus Image"/>
           </div>
         </div>
