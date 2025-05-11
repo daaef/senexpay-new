@@ -48,13 +48,13 @@ export default [
     designation: 'Software Developer'
   },
   {
-    class: 'eleven',
+    class: 'twelve',
     image: '/Jumoke.jpg',
     name: 'Jumoke',
     designation: 'Media'
   },
   {
-    class: 'eleven',
+    class: 'thirteen',
     image: 'https://res.cloudinary.com/senexpay/image/upload/v1744803918/Daniel.jpg',
     name: 'Daniel',
     designation: 'Media'
