@@ -2,24 +2,18 @@ export default [
   {
     class: 'one',
     image: 'https://res.cloudinary.com/senexpay/image/upload/v1689772937/assets/team/oke.png',
-    name: 'Okeoghene',
+    name: 'Oke',
     designation: 'CEO'
   },
   {
     class: 'two',
     image: 'https://res.cloudinary.com/senexpay/image/upload/v1689772937/assets/team/rikome.png',
-    name: 'Rikome',
-    designation: 'CTO'
-  },
-  {
-    class: 'three',
-    image: 'https://res.cloudinary.com/senexpay/image/upload/v1689772937/assets/team/edirin.png',
-    name: 'Edirin',
-    designation: 'Legal'
+    name: 'Riko',
+    designation: 'Tech Advisory'
   },
   {
     class: 'four',
-    image: '/praise.jpg',
+    image: 'https://res.cloudinary.com/senexpay/image/upload/v1744803917/Praise.jpg',
     name: 'Praise',
     designation: 'COO'
   },
@@ -27,19 +21,7 @@ export default [
     class: 'five',
     image: 'https://res.cloudinary.com/senexpay/image/upload/v1689772937/assets/team/latifah.png',
     name: 'Latifah',
-    designation: 'Finance'
-  },
-  {
-    class: 'six',
-    image: 'https://res.cloudinary.com/senexpay/image/upload/v1689772937/assets/team/jubilee.png',
-    name: 'Jubilee',
-    designation: 'Media'
-  },
-  {
-    class: 'seven',
-    image: '/chelsea.jpg',
-    name: 'Chelsea',
-    designation: 'Frontdesk'
+    designation: 'CFO'
   },
   {
     class: 'eight',
@@ -56,7 +38,7 @@ export default [
   {
     class: 'ten',
     image: 'https://res.cloudinary.com/senexpay/image/upload/v1689772937/assets/team/emmanuel.png',
-    name: 'Emannuel',
+    name: 'Emmanuel',
     designation: 'Software Developer'
   },
   {
@@ -66,9 +48,15 @@ export default [
     designation: 'Software Developer'
   },
   {
-    class: 'twelve',
-    image: 'https://res.cloudinary.com/senexpay/image/upload/v1689772937/assets/team/bot.png',
-    name: 'Bot',
-    designation: 'Software Developer'
-  }
+    class: 'eleven',
+    image: '/Jumoke.jpg',
+    name: 'Jumoke',
+    designation: 'Media'
+  },
+  {
+    class: 'eleven',
+    image: 'https://res.cloudinary.com/senexpay/image/upload/v1744803918/Daniel.jpg',
+    name: 'Daniel',
+    designation: 'Media'
+  },
 ]

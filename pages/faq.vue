@@ -20,13 +20,13 @@
   </section>
 </template>
 <script setup lang="ts">
-
+import demoFaqs from "~/data/faqs";
 import type { Faq } from "~/types/Faq";
 const colorMode = useColorMode();
 const config = useRuntimeConfig();
 
 
-const faqs = ref<Faq[]>([]);
+const faqs = ref<Faq[]>(demoFaqs);
 const activeAnswer = ref(null);
 const selectedTab = ref(0);
 
@@ -37,7 +37,7 @@ watch(selectedTab, () => {
 const getFaqs = async () => {
   await useFetch(`${config.public.apiUrl}/faqs/`).then((res) => {
     console.log('res.data is', res.data.value);
-    faqs.value = res.data.value as Faq[];
+    faqs.value = res.data.value as Faq[] ?? demoFaqs;
   });
 };
 
