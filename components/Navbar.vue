@@ -31,6 +31,18 @@ const handleScroll = () => {
   lastScrollPosition.value = currentScrollPosition
 }
 
+// Force isScrolled to true when mobile menu is opened
+const toggleMobileMenu = () => {
+  mobileMenuOpen.value = !mobileMenuOpen.value;
+  // If we're opening the menu and not already scrolled, force the background
+  if (mobileMenuOpen.value && !isScrolled.value) {
+    isScrolled.value = true;
+  } else if (!mobileMenuOpen.value && window.scrollY <= navbarRef.value?.offsetHeight) {
+    // Reset isScrolled based on actual scroll position when closing menu
+    isScrolled.value = false;
+  }
+}
+
 onMounted(() => {
   window.addEventListener('scroll', handleScroll)
   handleScroll()
@@ -52,7 +64,7 @@ onUnmounted(() => {
         ref="navbarRef"
         :class="[
           'container md:rounded-[32px] rounded-none transition-all duration-300',
-          isScrolled ? 'bg-background/40 backdrop-blur-lg' : 'bg-transparent backdrop-blur-none'
+          isScrolled || mobileMenuOpen ? 'bg-background/40 backdrop-blur-lg' : 'bg-transparent backdrop-blur-none'
         ]"
     >
       <div class="mx-auto py-6">
@@ -60,7 +72,6 @@ onUnmounted(() => {
           <!-- Logo -->
           <div class="flex-shrink-0">
             <a href="/" class="text-xl font-bold text-primary">
-<!--              <img src="/logo.svg" alt="Senexpay Logo" class="h-6 fill-foreground"/>-->
               <Logo src="/logo.svg" alt="Senexpay Logo" class="!h-6 !w-auto !text-foreground"/>
             </a>
           </div>
@@ -85,7 +96,7 @@ onUnmounted(() => {
           <!-- Mobile Menu Button -->
           <div class="md:hidden">
             <button
-                @click="mobileMenuOpen = !mobileMenuOpen"
+                @click="toggleMobileMenu"
                 class="text-foreground hover:text-accent focus:outline-none"
             >
               <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">

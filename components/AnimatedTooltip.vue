@@ -35,18 +35,18 @@
         translate: `${translation}px`,
         rotate: `${rotation}deg`,
       }"
-          class="absolute -left-1/2 -top-16 z-50 flex translate-x-1/2 flex-col items-center justify-center whitespace-nowrap rounded-md bg-black px-4 py-2 text-xs shadow-xl"
+          class="absolute -left-1/2 -top-16 z-50 flex translate-x-1/2 flex-col items-center justify-center whitespace-nowrap rounded-md bg-foreground px-4 py-2 text-xs shadow-xl"
       >
         <div
-            class="absolute inset-x-10 -bottom-px z-30 h-px w-1/5 bg-gradient-to-r from-transparent via-emerald-500 to-transparent"
+            class="absolute inset-x-10 -bottom-px z-30 h-px w-1/5 bg-gradient-to-r from-transparent via-custom-purple to-transparent"
         />
         <div
-            class="absolute -bottom-px left-10 z-30 h-px w-2/5 bg-gradient-to-r from-transparent via-sky-500 to-transparent"
+            class="absolute -bottom-px left-10 z-30 h-px w-2/5 bg-gradient-to-r from-transparent via-custom-blue to-transparent"
         />
-        <div class="relative z-30 text-base font-bold text-white">
+        <div class="relative z-30 text-base font-bold text-background">
           {{ item.name }}
         </div>
-        <div class="text-xs text-white">{{ item.designation }}</div>
+        <div class="text-xs text-background">{{ item.designation }}</div>
       </Motion>
 
       <!-- Avatar Image -->

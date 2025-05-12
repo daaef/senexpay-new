@@ -130,31 +130,7 @@
       </div>
 
       <div class="w-full">
-        <div class="grid grid-cols-1 lg:grid-cols-[0.7fr_1fr] gap-10 bg-background">
-          <div>
-            <div
-                v-for="(faq, index) in faqs"
-                :key="faq.id"
-                class="py-4 px-6 flex items-center justify-between gap-5 cursor-pointer hover:bg-[hsl(var(--page-background))] transition-all ease-in-out duration-300 mb-2"
-                :class="activeIndex === index ? 'bg-gradient-to-r from-[hsl(var(--page-background))] to-background font-bold' : 'bg-gradient-to-r from-[hsl(var(--page-background))]/50 to-background'"
-                @click="()=> {activeAnswer = faq.answer; activeIndex = index}"
-            >
-              {{ faq.question }}
-              <svg
-xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
-                   stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                   class="feather feather-chevron-right">
-                <polyline points="9 18 15 12 9 6"/>
-              </svg>
-            </div>
-          </div>
-          <div v-if="activeAnswer" class="p-4">
-            <div class="prose-sm dark:prose-invert max-w-none" v-html="activeAnswer"/>
-          </div>
-          <div v-else class="p-4 text-gray-500 dark:text-gray-400 flex items-center justify-center">
-            Select a question to view the answer
-          </div>
-        </div>
+        <FaqCollection :items="faqs" />
       </div>
 
       <div class="text-center mt-8">

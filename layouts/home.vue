@@ -2,7 +2,7 @@
 import {ref} from "vue";
 import Navbar from "~/components/Navbar.vue";
 import type {Avatar} from "#ui/types";
-
+const qrCodeVisible = ref(false);
 const containerRef = ref(null);
 const div1Ref = ref(null);
 const div2Ref = ref(null);
@@ -38,9 +38,40 @@ const div7Ref = ref(null);
           <p class="text-4xl text-foreground font-light">Effortlessly trade, store, and secure crypto assets in one
             app.</p>
           <div class="inline-grid grid-cols-3 gap-5">
-            <img src="/qr.svg" alt="Qr code" class="h-10"/>
-            <img src="/apple.svg" alt="Apple store Badge" class="h-10"/>
-            <img src="/playstore.svg" alt="Google Play Badge" class="h-10"/>
+            <div class="relative">
+              <img
+                  src="/qr.svg"
+                  alt="Qr code"
+                  class="h-10 cursor-pointer transition-transform hover:scale-110"
+                  @mouseenter="qrCodeVisible = true"
+                  @mouseleave="qrCodeVisible = false"
+              />
+              <Transition
+                  enter-active-class="transition duration-300 ease-out"
+                  enter-from-class="transform scale-95 opacity-0"
+                  enter-to-class="transform scale-100 opacity-100"
+                  leave-active-class="transition duration-200 ease-in"
+                  leave-from-class="transform scale-100 opacity-100"
+                  leave-to-class="transform scale-95 opacity-0"
+              >
+                <div
+                    v-if="qrCodeVisible"
+                    class="absolute z-20 top-0 -left-4 -translate-y-full mb-2 p-4 bg-card rounded-lg shadow-lg border border-border"
+                >
+                  <div class="flex flex-col items-center">
+                    <qr-code />
+                    <p class="mt-2 text-sm text-muted-foreground">Scan to download SenexPay</p>
+                  </div>
+                  <div class="absolute -bottom-2 left-6 w-4 h-4 bg-card rotate-45 border-r border-b border-border"></div>
+                </div>
+              </Transition>
+            </div>
+            <NuxtLink to="https://apps.apple.com/us/app/senexpay-trade-bitcoin-usdt/id1627864145" target="_blank">
+              <img src="/apple.svg" alt="Apple store Badge" class="h-10"/>
+            </NuxtLink>
+            <NuxtLink to="https://play.google.com/store/apps/details?id=com.senexpay.mobile&hl=en&gl=NG" target="_blank">
+              <img src="/playstore.svg" alt="Google Play Badge" class="h-10"/>
+            </NuxtLink>
           </div>
         </div>
         <div
@@ -147,26 +178,9 @@ const div7Ref = ref(null);
       </div>
     </header>
   </ClientOnly>
-  <main class="font-sf">
+  <main class="font-sf overflow-x-hidden">
     <slot/>
-    <section class="min-h-[80vh] py-[60px] font-sf bg-background">
-      <div
-          class="container py-10 rounded-[23px] bg-gradient-to-b from-[#AB9CEF]/5 to-[#2F3351]/5 grid lg:grid-cols-[1fr_1.2fr] gap-10 items-center">
-        <div class="">
-          <h3 class="text-6xl font-bold">Get the SenexPay mobile now!</h3>
-          <p class="mb-5 font-light text-xl mt-4">Get smarter and faster access right on your mobile phone.</p>
-          <div class="inline-grid grid-cols-3 gap-5">
-            <img src="/qr.svg" alt="Qr code" class="h-10"/>
-            <img src="/apple.svg" alt="Apple store Badge" class="h-10"/>
-            <img src="/playstore.svg" alt="Google Play Badge" class="h-10"/>
-          </div>
-        </div>
-        <div class="flex relative items-center min-h-[600px] gap-6">
-          <Ripple circle-class="border-foreground h-[400px] rounded-full"/>
-          <img src="/phone-img.png" class="relative h-[450px]" alt="Phone Image"/>
-        </div>
-      </div>
-    </section>
+    <DownloadApp/>
   </main>
   <SenexFooter/>
 </template>

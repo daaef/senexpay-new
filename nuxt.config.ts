@@ -127,6 +127,11 @@ export default defineNuxtConfig({
                     href: 'http://fonts.cdnfonts.com/css/sf-pro-display'
                 },
             ],
+            script: [{
+                type: 'text/javascript',
+                src: '/js/zoho_salesiq.js',
+                defer: true
+            }],
         },
     },
     runtimeConfig: {
@@ -135,6 +140,7 @@ export default defineNuxtConfig({
         public: {
             apiUrl: "https://api.senexpay.com",
             siteUrl: "https://senexpay.com",
+            appUrl: "https://app.senexpay.com",
             sentryDsn: "https://30faafef647f46ca864da4032d66cea2@o1015449.ingest.sentry.io/5981040",
             googleAnalyticsId: "UA-143592303-1",
             language: "en",

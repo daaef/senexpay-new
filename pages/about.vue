@@ -1,7 +1,7 @@
 <template>
   <section class="pb-[60px] pt-[200px] bg-gradient-to-b from-[hsl(var(--page-background))]/70 to-background">
     <div class="container">
-      <h3 class="text-center text-6xl font-bold mb-8">Unleash Money’s Global Freedom </h3>
+      <h3 class="text-center md:text-6xl text-5xl font-bold mb-8">Unleash Money’s Global Freedom </h3>
       <img src="/banner.jpg" class="w-full hidden dark:block rounded-[23px]" alt="About Page Banner">
       <img src="/about_banner.jpg" class="w-full dark:hidden block rounded-[23px]" alt="About Page Banner">
       <p class="mt-8 text-2xl text-center max-w-[1000px] mx-auto">Established in 2016, SenexPay set out to restore
@@ -23,17 +23,17 @@
             </p>
           </div>
         </div>
-        <div class="px-8">
+        <div class="md:px-8">
           <div class="grid grid-cols-2 rounded-[23px] lg:overflow-hidden">
             <div class="bg-accent text-foreground p-10 py-16 grid items-center">
               <div>
-                <h3 class="text-6xl font-bold">12+</h3>
+                <h3 class="md:md:text-6xl text-5xl font-bold">12+</h3>
                 <p class="text-2xl font-medium mt-4">Supported
                   Assets</p>
               </div>
             </div>
             <div class="bg-[hsl(var(--page-background))] text-foreground p-10 py-16">
-              <h3 class="text-6xl font-bold">
+              <h3 class="md:text-6xl text-5xl font-bold">
                 $2B+
               </h3>
               <p class="text-2xl font-medium mt-4">
@@ -42,7 +42,7 @@
               </p>
             </div>
             <div class="bg-[hsl(var(--page-background))] text-foreground p-10 py-16">
-              <h3 class="text-6xl font-bold">30+</h3>
+              <h3 class="md:text-6xl text-5xl font-bold">30+</h3>
               <p class="text-2xl font-medium mt-4">
                 Available
                 Jurisdictions
@@ -50,7 +50,7 @@
             </div>
             <div class="bg-accent text-foreground p-10 py-16 grid items-center">
               <div>
-                <h3 class="text-6xl font-bold">50K+</h3>
+                <h3 class="md:text-6xl text-5xl font-bold">50K+</h3>
                 <p class="text-2xl font-medium mt-4">
                   Senex
                   Buddies
@@ -68,30 +68,30 @@
       <h3 class="text-center text-4xl font-bold">Our Core Values</h3>
       <div class="grid grid-cols-3  max-w-[800px] mx-auto gap-10 mt-14">
         <div class="">
-          <img src="/live-bold.svg" class="h-20 mx-auto" alt="Live Bold Icon"/>
+          <img src="/live-bold.svg" class="md:h-20 h-16 mx-auto" alt="Live Bold Icon"/>
           <h3 class="text-center text-2xl font-bold mt-4">Live Bold</h3>
         </div>
         <div class="">
-          <img src="/lead-change.svg" class="h-20 mx-auto" alt="Lead Change Icon"/>
+          <img src="/lead-change.svg" class="md:h-20 h-16 mx-auto" alt="Lead Change Icon"/>
           <h3 class="text-center text-2xl font-bold mt-4">Lead Change</h3>
         </div>
         <div class="">
-          <img src="/inspire-hope.svg" class="h-20 mx-auto" alt="Inspire Hope Icon"/>
+          <img src="/inspire-hope.svg" class="md:h-20 h-16 mx-auto" alt="Inspire Hope Icon"/>
           <h3 class="text-center text-2xl font-bold mt-4">Inspire Hope</h3>
         </div>
       </div>
       <div class="h-[1px] bg-gradient-to-r  from-custom-purple to-custom-blue w-full my-16 opacity-45"/>
       <div class="flex flex-col gap-8">
-        <div class="grid grid-cols-[122px_1fr] gap-6 items-center">
-          <img src="/mission.svg" class="h-20 mx-auto" alt="Mission Icon"/>
+        <div class="grid md:grid-cols-[122px_1fr] gap-6 items-center">
+          <img src="/mission.svg" class="h-20 md:mx-auto" alt="Mission Icon"/>
           <div class="">
             <h3 class="text-2xl font-bold mt-4">Mission</h3>
             <p class="text-2xl"> Enabling equal global participation for Africans through the widespread use of
               blockchain-driven financial innovation </p>
           </div>
         </div>
-        <div class="grid grid-cols-[122px_1fr] gap-6 items-center">
-          <img src="/vision.svg" class="h-20 mx-auto" alt="Vision Icon"/>
+        <div class="grid md:grid-cols-[122px_1fr] gap-6 items-center">
+          <img src="/vision.svg" class="h-20 md:mx-auto" alt="Vision Icon"/>
           <div class="">
             <h3 class="text-2xl font-bold mt-4">Vision</h3>
             <p class="text-2xl"> Our vision is to make financial services seamless for every person on the globe.

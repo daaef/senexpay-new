@@ -1,19 +1,20 @@
 <template>
   <section class="pb-[60px] pt-[200px] bg-gradient-to-b from-[hsl(var(--page-background))]/70 to-background">
     <div class="container">
-      <UTabs :items="groupedFaqs" class="w-full" v-model="selectedTab">
+      <h2 class="text-4xl font-semibold tracking-tight sm:text-5xl mb-10">Frequently Asked Questions.</h2>
+      <UInput
+          input-class="ring-none! focus:ring-0"
+          v-model="searchQuery"
+          icon="i-heroicons-magnifying-glass-20-solid"
+          size="lg"
+          color="white"
+          :trailing="false"
+          placeholder="Search for Questions of interest"
+          class="w-full mb-10"
+      />
+      <UTabs :items="filteredFaqs" class="w-full" v-model="selectedTab">
         <template #item="{ item }">
-          <div class="grid grid-cols-[.7fr_1fr] gap-10 bg-background">
-            <div class="">
-              <div
-                  class="py-4 px-6 flex items-center justify-between gap-5 cursor-pointer hover:bg-[hsl(var(--page-background))] transition-all ease-in-out duration-300 mb-2"
-                  v-for="content in item.content" :key="content.id" @click="activeAnswer = content.answer"  :class="activeAnswer === content.answer ? 'bg-gradient-to-r from-[hsl(var(--page-background))] to-background font-bold' : 'bg-gradient-to-r from-[hsl(var(--page-background))]/50 to-background'">
-                {{ content.question }}
-                <Icon name="line-md:chevron-right" size="18"/>
-              </div>
-            </div>
-            <div class="p-4 faq-answer" v-html="activeAnswer"></div>
-          </div>
+          <FaqCollection :items="item.content" />
         </template>
       </UTabs>
     </div>
@@ -29,6 +30,7 @@ const config = useRuntimeConfig();
 const faqs = ref<Faq[]>(demoFaqs);
 const activeAnswer = ref(null);
 const selectedTab = ref(0);
+const searchQuery = ref('');
 
 watch(selectedTab, () => {
   activeAnswer.value = null;
@@ -68,12 +70,27 @@ const categoryTabs = ref([
     filter: "exchange",
   },
 ])
-const groupedFaqs = computed(() => {
+
+// Filter FAQs based on search query
+const filteredFaqsList = computed(() => {
+  if (!searchQuery.value.trim()) {
+    return faqs.value;
+  }
+
+  const query = searchQuery.value.toLowerCase();
+  return faqs.value.filter(faq =>
+      faq.question.toLowerCase().includes(query) ||
+      faq.answer.toLowerCase().includes(query)
+  );
+});
+
+// Group filtered FAQs by category
+const filteredFaqs = computed(() => {
   return categoryTabs.value.map((tab) => ({
     label: tab.name,
     content: tab.ids === 0
-        ? faqs.value
-        : faqs.value?.filter((faq) => faq.category === tab.ids),
+        ? filteredFaqsList.value
+        : filteredFaqsList.value.filter((faq) => faq.category === tab.ids),
   }));
 });
 
@@ -86,8 +103,8 @@ onMounted(async () => {
 </script>
 
 <style>
-  .faq-answer ul {
-    list-style: disc;
-    padding-left: 15px;
-  }
+.faq-answer ul {
+  list-style: disc;
+  padding-left: 15px;
+}
 </style>
