@@ -54,7 +54,7 @@
                   <div class="relative mt-2">
                     <input id="btc_amount"
                            v-model="amount"
-                           class="h-[50px] pl-4 border ring-1 border-[#053889] w-full p-2 rounded-[9px] appearance-none"
+                           class="h-[50px] text-[#053889] pl-4 border ring-1 border-[#053889] w-full p-2 rounded-[9px] appearance-none"
                            type="number"
                            placeholder="0.00"/>
                     <USelectMenu class="absolute right-[6px] text-[#053889] top-[50%] translate-y-[-50%]"
@@ -72,7 +72,7 @@
                   <div class="relative mt-2">
                     <input id="local_amount"
                            v-model="localAmount"
-                           class="h-[50px] pl-4 border ring-1 border-[#053889] w-full p-2 rounded-[9px] appearance-none"
+                           class="h-[50px] text-[#053889] pl-4 border ring-1 border-[#053889] w-full p-2 rounded-[9px] appearance-none"
                            type="number"
                            placeholder="0.00"/>
                     <USelectMenu class="absolute right-[6px] text-[#053889] top-[50%] translate-y-[-50%]"
@@ -91,7 +91,7 @@
                   <div class="relative mt-2">
                     <input id="usd_amount"
                            v-model="usdAmount"
-                           class="h-[50px] pl-4 border ring-1 border-[#053889] w-full p-2 rounded-[9px] appearance-none"
+                           class="h-[50px] pl-4 border text-[#053889] ring-1 border-[#053889] w-full p-2 rounded-[9px] appearance-none"
                            type="number"
                            placeholder="0.00"/>
                     <div
