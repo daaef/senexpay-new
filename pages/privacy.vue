@@ -1,5 +1,45 @@
 <script setup lang="ts">
+// SEO Configuration
+const { setPageSEO, setJSONLD } = useSEO()
 
+setPageSEO({
+  title: 'Privacy Policy - SenexPay',
+  description: 'Learn how SenexPay collects, uses, and protects your personal information. Our comprehensive privacy policy outlines our commitment to data protection and user privacy.',
+  keywords: 'senexpay privacy policy, data protection, user privacy, personal information, data security, privacy notice',
+  ogTitle: 'Privacy Policy - SenexPay',
+  ogDescription: 'Learn how SenexPay protects your personal information and data.',
+  ogUrl: 'https://senexpay.com/privacy',
+  canonical: 'https://senexpay.com/privacy',
+  type: 'article'
+})
+
+// Set Privacy Policy JSON-LD
+setJSONLD([
+  {
+    '@type': 'WebPage',
+    '@id': 'https://senexpay.com/privacy/#webpage',
+    isPartOf: { '@id': 'https://senexpay.com/#website' },
+    url: 'https://senexpay.com/privacy/',
+    inLanguage: 'en-US',
+    name: 'Privacy Policy - SenexPay',
+    about: {
+      '@id': 'https://senexpay.com/#organization'
+    },
+    datePublished: '2021-10-01T00:00:00+00:00',
+    dateModified: new Date().toISOString(),
+    description: 'Learn how SenexPay collects, uses, and protects your personal information.',
+    mainEntity: {
+      '@type': 'Article',
+      '@id': 'https://senexpay.com/privacy/#article',
+      headline: 'SenexPay Privacy Policy',
+      description: 'Comprehensive privacy policy describing how SenexPay handles user data and personal information.',
+      author: { '@id': 'https://senexpay.com/#organization' },
+      publisher: { '@id': 'https://senexpay.com/#organization' },
+      datePublished: '2021-10-01T00:00:00+00:00',
+      dateModified: new Date().toISOString()
+    }
+  }
+])
 </script>
 
 <template>

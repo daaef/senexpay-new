@@ -86,9 +86,8 @@
     --secondary: 216 87% 63%; /* #4085F2, secondary gradient */
     --secondary-foreground: 0 0% 98%; /* #fafafa, white text */
     --destructive: 0 84% 60%; /* Red for destructive actions */
-    --destructive-foreground: 0 0% 98%; /* #fafafa */
-    --muted: 227 56% 40%; /* Lighter #053889 for muted elements */
-    --muted-foreground: 227 56% 50%; /* Slightly lighter #053889 */
+    --destructive-foreground: 0 0% 98%; /* #fafafa */    --muted: 227 56% 40%; /* Lighter #053889 for muted elements */
+    --muted-foreground: 227 56% 50%; /* Muted version of foreground */
     --accent: 216 87% 63%; /* #4085F2, secondary color */
     --accent-foreground: 0 0% 98%; /* #fafafa */
     --popover: 0 0% 100%; /* #ffffff, same as background */
@@ -110,9 +109,8 @@
     --secondary: 216 87% 63%; /* #4085F2, secondary gradient */
     --secondary-foreground: 0 0% 98%; /* #fafafa, white text */
     --destructive: 0 84% 60%; /* Red for destructive actions */
-    --destructive-foreground: 0 0% 98%; /* #fafafa */
-    --muted: 221 56% 30%; /* Lighter #041D45 for muted elements */
-    --muted-foreground: 221 56% 40%; /* Slightly lighter #041D45 */
+    --destructive-foreground: 0 0% 98%; /* #fafafa */    --muted: 221 56% 30%; /* Lighter #041D45 for muted elements */
+    --muted-foreground: 0 0% 70%; /* Muted version of foreground */
     --accent: 216 87% 63%; /* #4085F2, secondary color */
     --accent-foreground: 0 0% 98%; /* #fafafa */
     --popover: 221 56% 16%; /* #041D45, same as background */

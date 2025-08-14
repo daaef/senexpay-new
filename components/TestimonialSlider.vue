@@ -86,6 +86,8 @@ export interface Testimonial {
   photo: string;
   reviewText: string;
   name: string;
+  rating?: number;
+  created?: string;
 }
 
 const props = withDefaults(
@@ -93,13 +95,22 @@ const props = withDefaults(
       testimonials?: Testimonial[];
       autoRotate?: boolean;
       duration?: number;
+      useAPI?: boolean;
     }>(),
     {
       autoRotate: true,
       duration: 5,
       testimonials: () => [],
+      useAPI: false,
     },
 );
+
+const { testimonials: apiTestimonials, fetchTestimonials } = useTestimonials();
+
+// Use API testimonials if useAPI is true, otherwise use provided testimonials
+const testimonials = computed(() => {
+  return props.useAPI ? apiTestimonials.value : props.testimonials;
+});
 
 const active = ref<number>(0);
 const autorotate = ref(props.autoRotate);

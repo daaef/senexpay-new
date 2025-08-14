@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import {ref, onMounted, onUnmounted} from 'vue'
-import Logo from "~/assets/icons/logo.svg"
+import Logo from "@/assets/icons/logo.svg"
 
 const isVisible = ref(true)
 const lastScrollPosition = ref(0)

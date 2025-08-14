@@ -56,6 +56,9 @@ importers:
       nuxt-gtag:
         specifier: 3.0.2
         version: 3.0.2(magicast@0.3.5)
+      nuxt-jsonld:
+        specifier: ^2.2.1
+        version: 2.2.1
       nuxt-meta-pixel:
         specifier: 2.0.2
         version: 2.0.2(magicast@0.3.5)
@@ -4182,6 +4185,9 @@ packages:
   nuxt-gtag@3.0.2:
     resolution: {integrity: sha512-0Spu/rffPxW7REebkjE22qQOuVZIQuyIuvd61InDdJU+d+gRIqWhrUuKBWdk43N/J1elj+cTK2kEdk5FQX7vdQ==}
 
+  nuxt-jsonld@2.2.1:
+    resolution: {integrity: sha512-V5y8NXr+rICH+JyQl/AThYzDXMpKM/IND0NKy6k/79Q2yU9UP1AmgbNHDesjMXbMHLyPxwMVqUP2q9WpL3/zMw==}
+
   nuxt-meta-pixel@2.0.2:
     resolution: {integrity: sha512-3tCB0uEfhVwfyiwaBp09mgKbT2U+oVGTRtKxaOPL3QQqEhO2l2RTT8uzVObSt9rg4/B+3v/vg2S2I9Ru1RL44Q==}
 
@@ -4918,6 +4924,9 @@ packages:
   safe-stable-stringify@2.5.0:
     resolution: {integrity: sha512-b3rppTKm9T+PsVCBEOUR46GWI7fdOs00VKZ1+9c1EWDaDMvjQc6tUwuFyIprgGgTcWoVHSKrU8H31ZHA2e0RHA==}
     engines: {node: '>=10'}
+
+  schema-dts@1.1.5:
+    resolution: {integrity: sha512-RJr9EaCmsLzBX2NDiO5Z3ux2BVosNZN5jo0gWgsyKvxKIUL5R3swNvoorulAeL9kLB0iTSX7V6aokhla2m7xbg==}
 
   scslre@0.3.0:
     resolution: {integrity: sha512-3A6sD0WYP7+QrjbfNA2FN3FsOaGGFoekCVgTyypy53gPxhbkCIjtO6YWgdrfM+n/8sI8JeXZOIxsHjMTNxQ4nQ==}
@@ -10618,6 +10627,11 @@ snapshots:
     transitivePeerDependencies:
       - magicast
 
+  nuxt-jsonld@2.2.1:
+    dependencies:
+      pathe: 1.1.2
+      schema-dts: 1.1.5
+
   nuxt-meta-pixel@2.0.2(magicast@0.3.5):
     dependencies:
       '@nuxt/kit': 3.16.2(magicast@0.3.5)
@@ -11475,6 +11489,8 @@ snapshots:
       is-regex: 1.2.1
 
   safe-stable-stringify@2.5.0: {}
+
+  schema-dts@1.1.5: {}
 
   scslre@0.3.0:
     dependencies:

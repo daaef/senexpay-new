@@ -127,11 +127,6 @@ export default defineNuxtConfig({
                     href: 'http://fonts.cdnfonts.com/css/sf-pro-display'
                 },
             ],
-            script: [{
-                type: 'text/javascript',
-                src: '/js/zoho_salesiq.js',
-                defer: true
-            }],
         },
     },
     runtimeConfig: {
@@ -145,9 +140,8 @@ export default defineNuxtConfig({
             googleAnalyticsId: "UA-143592303-1",
             language: "en",
         },
-    },
-    modules: ['@nuxt/eslint', '@nuxt/fonts', '@nuxt/icon', '@nuxt/image', '@nuxt/scripts', // '@nuxtjs/tailwindcss',
-        '@nuxt/ui', 'nuxt-svgo', 'nuxt-gtag', '@sentry/nuxt/module'
+    },    modules: ['@nuxt/eslint', '@nuxt/fonts', '@nuxt/icon', '@nuxt/image', '@nuxt/scripts', // '@nuxtjs/tailwindcss',
+        '@nuxt/ui', 'nuxt-svgo', 'nuxt-gtag', '@sentry/nuxt/module', 'nuxt-jsonld'
     ],
     colorMode: {
         classSuffix: '',

@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import {ref} from "vue";
-import Navbar from "~/components/Navbar.vue";
-import type {Avatar} from "#ui/types";
+import Navbar from "@/components/Navbar.vue";
 const qrCodeVisible = ref(false);
 const containerRef = ref(null);
 const div1Ref = ref(null);

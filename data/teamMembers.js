@@ -33,7 +33,7 @@ export default [
     id: 'nine',
     image: 'https://res.cloudinary.com/senexpay/image/upload/c_pad,ar_1:1/v1698441417/assets/team/phil_k6s52w.jpg',
     name: 'Philip',
-    designation: 'Design / Media'
+    designation: 'Creative Designer'
   },
   {
     id: 'ten',
@@ -51,12 +51,18 @@ export default [
     id: 'twelve',
     image: '/Jumoke.jpg',
     name: 'Jumoke',
-    designation: 'Media'
+    designation: 'Community Manager'
   },
   {
     id: 'thirteen',
     image: 'https://res.cloudinary.com/senexpay/image/upload/v1744803918/Daniel.jpg',
     name: 'Daniel',
-    designation: 'Media'
+    designation: 'Sales Strategist'
+  },
+  {
+    id: 'fourteen',
+    image: 'https://res.cloudinary.com/senexpay/image/upload/v1689772937/assets/team/bot.png',
+    name: 'Bot',
+    designation: 'Software Developer'
   },
 ]

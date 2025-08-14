@@ -21,27 +21,78 @@
   </section>
 </template>
 <script setup lang="ts">
-import demoFaqs from "~/data/faqs";
-import type { Faq } from "~/types/Faq";
+import demoFaqs from "@/data/faqs";
+import type { Faq } from "@/types/Faq";
+
+// SEO Configuration
+const { setPageSEO, setJSONLD, getFAQSchema } = useSEO()
+
 const colorMode = useColorMode();
 const config = useRuntimeConfig();
 
-
-const faqs = ref<Faq[]>(demoFaqs);
+// Use the composable for FAQ data with API integration
+const faqsComposable = useFaqs()
+const faqs = faqsComposable.data
+const loading = faqsComposable.loading
+const error = faqsComposable.error
 const activeAnswer = ref(null);
 const selectedTab = ref(0);
 const searchQuery = ref('');
 
+// Initialize FAQ data
+await faqsComposable.initialize();
+
+// Set SEO after we have FAQ data
+setPageSEO({
+  title: 'Frequently Asked Questions - SenexPay Help Center',
+  description: 'Find answers to common questions about SenexPay cryptocurrency exchange, security, KYC verification, rewards, referrals, and trading. Get help with your account and transactions.',
+  keywords: 'senexpay faq, frequently asked questions, help center, crypto exchange help, bitcoin trading questions, usdt support, security questions, kyc verification, referral program',
+  ogTitle: 'Frequently Asked Questions - SenexPay Help Center',
+  ogDescription: 'Find answers to common questions about SenexPay cryptocurrency exchange, security, and trading.',
+  ogUrl: 'https://senexpay.com/faq',
+  canonical: 'https://senexpay.com/faq',
+  type: 'website'
+})
+
+// Create FAQ schema from the actual FAQ data
+const faqSchemaData = computed(() => {
+  const faqItems = faqs.value.slice(0, 10).map(faq => ({
+    question: faq.question,
+    answer: faq.answer
+  }))
+  return getFAQSchema(faqItems)
+})
+
+// Set JSON-LD with actual FAQ data
+setJSONLD([
+  faqSchemaData.value,
+  {
+    '@type': 'WebPage',
+    '@id': 'https://senexpay.com/faq/#webpage',
+    isPartOf: { '@id': 'https://senexpay.com/#website' },
+    url: 'https://senexpay.com/faq/',
+    inLanguage: 'en-US',
+    name: 'Frequently Asked Questions - SenexPay Help Center',
+    about: {
+      '@id': 'https://senexpay.com/#organization'
+    },
+    dateModified: new Date().toISOString(),
+    description: 'Find answers to common questions about SenexPay cryptocurrency exchange, security, and trading.',
+    potentialAction: {
+      '@type': 'SearchAction',
+      target: {
+        '@type': 'EntryPoint',
+        urlTemplate: 'https://senexpay.com/faq?q={search_term_string}'
+      },
+      'query-input': 'required name=search_term_string'
+    }
+  }
+])
+
+
 watch(selectedTab, () => {
   activeAnswer.value = null;
 });
-
-const getFaqs = async () => {
-  await useFetch(`${config.public.apiUrl}/faqs/`).then((res) => {
-    console.log('res.data is', res.data.value);
-    faqs.value = res.data.value as Faq[] ?? demoFaqs;
-  });
-};
 
 const categoryTabs = ref([
   {
@@ -91,13 +142,10 @@ const filteredFaqs = computed(() => {
     content: tab.ids === 0
         ? filteredFaqsList.value
         : filteredFaqsList.value.filter((faq) => faq.category === tab.ids),
-  }));
+  })) as any[];
 });
 
 onMounted(async () => {
-  console.log('config', config.public.apiUrl)
-  console.log('fetching faqs')
-  await getFaqs()
   colorMode.preference = 'dark';
 })
 </script>

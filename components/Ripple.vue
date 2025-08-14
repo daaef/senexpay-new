@@ -13,7 +13,7 @@
 </template>
 
 <script setup lang="ts">
-import RippleCircle from "~/components/RippleCircle.vue";
+import RippleCircle from "@/components/RippleCircle.vue";
 
 interface Props {
   baseCircleSize?: number;

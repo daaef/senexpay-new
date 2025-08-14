@@ -6,7 +6,7 @@
           <Logo src="/logo.svg" alt="Senexpay Logo" class="!h-9 !w-auto !text-foreground"/>
         </div>
         <div class="grid lg:grid-cols-3 gap-8 lg:col-span-2 lg:mt-0">
-          <div class="py-20 pt-16 lg:border-r border-accent/10">
+          <div class="lg:py-20 lg:pt-16 lg:border-r border-accent/10">
             <h3 class="text-sm/6 font-semibold text-white">Company</h3>
             <ul role="list" class="mt-6 space-y-4">
               <li v-for="item in navigation.company" :key="item.name">
@@ -14,7 +14,7 @@
               </li>
             </ul>
           </div>
-          <div class="py-20 pt-16 lg:border-r border-accent/10">
+          <div class="lg:py-20 lg:pt-16 lg:border-r border-accent/10">
             <h3 class="text-sm/6 font-semibold text-white">Support</h3>
             <ul role="list" class="mt-6 space-y-4">
               <li v-for="item in navigation.support" :key="item.name">
@@ -22,7 +22,7 @@
               </li>
             </ul>
           </div>
-          <div class="py-20 pt-16">
+          <div class="lg:py-20 lg:pt-16 mb-12 lg:mb-0">
             <h3 class="text-sm/6 font-semibold text-white">Legal</h3>
             <ul role="list" class="mt-6 space-y-4">
               <li v-for="item in navigation.legal" :key="item.name">

@@ -26,10 +26,29 @@
           </p>
         </div>
         <div class="grid gap-4">
-          <a href="#" class="flex items-center justify-between py-8 px-4 border-b border-accent/10 group">
+          <div v-if="loading" class="py-8 px-4 text-center">
+            <p>Loading job openings...</p>
+          </div>
+          <div v-else-if="jobs.length === 0" class="py-8 px-4 text-center">
+            <p class="text-muted-foreground">No current openings available. Check back soon!</p>
+          </div>
+          <a v-else
+             v-for="job in jobs" 
+             :key="job.id"
+             :href="job.link || '#'" 
+             target="_blank"
+             rel="noopener"
+             class="flex items-center justify-between py-8 px-4 border-b border-accent/10 group hover:bg-primary/5 transition-colors"
+          >
             <div>
-              <h4 class="text-4xl font-semibold">Sales Manager</h4>
-              <p class="text-sm font-light mt-6">Location: Remote</p>
+              <h4 class="text-4xl font-semibold">{{ job.title }}</h4>
+              <p class="text-sm font-light mt-6">
+                Location: {{ job.location || 'Remote' }}
+                <span v-if="job.type" class="ml-4">• {{ job.type }}</span>
+              </p>
+              <p v-if="job.department" class="text-sm text-muted-foreground mt-2">
+                Department: {{ job.department }}
+              </p>
             </div>
             <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -53,10 +72,85 @@
     </div>
   </section>
 </template>
+
 <script setup lang="ts">
+// SEO Configuration
+const { setPageSEO, setJSONLD, getJobPostingSchema } = useSEO()
+
 const colorMode = useColorMode();
+const { jobs, loading, fetchJobs } = useJobs();
+
+// Set basic SEO first
+setPageSEO({
+  title: 'Careers at SenexPay - Join Our Team',
+  description: 'Join SenexPay and help build the future of cryptocurrency in Africa. Explore career opportunities in blockchain, fintech, engineering, marketing, and more.',
+  keywords: 'senexpay careers, jobs at senexpay, blockchain jobs, fintech careers, cryptocurrency jobs nigeria, africa fintech jobs, remote blockchain jobs',
+  ogTitle: 'Careers at SenexPay - Join Our Team',
+  ogDescription: 'Join SenexPay and help build the future of cryptocurrency in Africa.',
+  ogUrl: 'https://senexpay.com/careers',
+  canonical: 'https://senexpay.com/careers',
+  type: 'website'
+})
+
+// Watch for jobs data to update JSON-LD
+watchEffect(() => {
+  if (jobs.value && jobs.value.length > 0) {
+    const jobPostings = jobs.value.map(job => ({
+      title: job.title,
+      description: job.description || `Join SenexPay as a ${job.title}`,
+      location: job.location || 'Lagos, Nigeria',
+      type: job.type || 'Full-time',
+      department: job.department || 'General',
+      experience: job.experience || 'Mid-level',
+      salary: job.salary
+    }))
+
+    setJSONLD([
+      {
+        '@type': 'WebPage',
+        '@id': 'https://senexpay.com/careers/#webpage',
+        isPartOf: { '@id': 'https://senexpay.com/#website' },
+        url: 'https://senexpay.com/careers/',
+        inLanguage: 'en-US',
+        name: 'Careers at SenexPay - Join Our Team',
+        about: {
+          '@id': 'https://senexpay.com/#organization'
+        },
+        dateModified: new Date().toISOString(),
+        description: 'Join SenexPay and help build the future of cryptocurrency in Africa.',
+        potentialAction: {
+          '@type': 'ApplyAction',
+          target: 'https://senexpay.com/careers/'
+        }
+      },
+      ...getJobPostingSchema(jobPostings)
+    ])
+  } else {
+    // Set basic page schema if no jobs available
+    setJSONLD([
+      {
+        '@type': 'WebPage',
+        '@id': 'https://senexpay.com/careers/#webpage',
+        isPartOf: { '@id': 'https://senexpay.com/#website' },
+        url: 'https://senexpay.com/careers/',
+        inLanguage: 'en-US',
+        name: 'Careers at SenexPay - Join Our Team',
+        about: {
+          '@id': 'https://senexpay.com/#organization'
+        },
+        dateModified: new Date().toISOString(),
+        description: 'Join SenexPay and help build the future of cryptocurrency in Africa.',
+        potentialAction: {
+          '@type': 'ApplyAction',
+          target: 'https://senexpay.com/careers/'
+        }
+      }
+    ])
+  }
+})
 
 onMounted(() => {
   colorMode.preference = 'dark';
-})
+  fetchJobs();
+});
 </script>

@@ -1,4 +1,45 @@
 <script setup lang="ts">
+// SEO Configuration
+const { setPageSEO, setJSONLD } = useSEO()
+
+setPageSEO({
+  title: 'Terms of Use - SenexPay',
+  description: 'Read SenexPay\'s terms of use and service agreement. Understand your rights and responsibilities when using our cryptocurrency exchange platform.',
+  keywords: 'senexpay terms of use, terms and conditions, service agreement, user agreement, legal terms, cryptocurrency exchange terms',
+  ogTitle: 'Terms of Use - SenexPay',
+  ogDescription: 'Read SenexPay\'s terms of use and service agreement.',
+  ogUrl: 'https://senexpay.com/terms',
+  canonical: 'https://senexpay.com/terms',
+  type: 'article'
+})
+
+// Set Terms of Use JSON-LD
+setJSONLD([
+  {
+    '@type': 'WebPage',
+    '@id': 'https://senexpay.com/terms/#webpage',
+    isPartOf: { '@id': 'https://senexpay.com/#website' },
+    url: 'https://senexpay.com/terms/',
+    inLanguage: 'en-US',
+    name: 'Terms of Use - SenexPay',
+    about: {
+      '@id': 'https://senexpay.com/#organization'
+    },
+    datePublished: '2021-10-01T00:00:00+00:00',
+    dateModified: new Date().toISOString(),
+    description: 'Read SenexPay\'s terms of use and service agreement.',
+    mainEntity: {
+      '@type': 'Article',
+      '@id': 'https://senexpay.com/terms/#article',
+      headline: 'SenexPay Terms of Use',
+      description: 'Comprehensive terms of use governing the use of SenexPay services and platform.',
+      author: { '@id': 'https://senexpay.com/#organization' },
+      publisher: { '@id': 'https://senexpay.com/#organization' },
+      datePublished: '2021-10-01T00:00:00+00:00',
+      dateModified: new Date().toISOString()
+    }
+  }
+])
 
 </script>
 

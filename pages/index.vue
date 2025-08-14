@@ -1,10 +1,10 @@
 <template>
   <section class="min-h-[80vh] py-[60px] bg-background">
     <div
-        class="container py-10 rounded-[23px] bg-gradient-to-b from-[#AB9CEF]/5 to-[#2F3351]/5 grid lg:grid-cols-[1.2fr_1fr] gap-10 items-center">
-      <div class="lg:flex grid justify-center items-center gap-6">
+        class="container py-[23px] bg-gradient-to-b from-[#AB9CEF]/5 to-[#2F3351]/5 grid lg:grid-cols-[1.2fr_1fr] gap-6 lg:gap-10 items-center">
+      <div class="lg:flex grid justify-center items-center gap-4 lg:gap-6">
         <ClientOnly>
-          <div class="relative flex h-[600px] flex-col overflow-hidden p-2">
+          <div class="relative flex h-[300px] sm:h-[400px] lg:h-[600px] flex-col overflow-hidden p-1 sm:p-2">
             <AnimatedList>
               <template #default>
                 <Notification
@@ -23,9 +23,9 @@
         <iPhone15ProMockup
             class="h-[600px] max-w-fit"
         >
-          <div class="bg-white h-full py-10 px-6 flex-col flex justify-between">
+          <div class="md:bg-white h-full py-10 px-6 flex-col flex justify-between">
             <div class="">
-              <h4 class="text-[#053889] text-lg font-bold mb-6">
+              <h4 class="md:text-[#053889] text-lg font-bold mb-6">
                 Trade
               </h4>
               <div class="grid grid-cols-2 h-[55px] relative bg-[#D6E6FD] rounded-[9px]">
@@ -45,9 +45,12 @@
                   Sell
                 </button>
               </div>
-              <form class="mt-8 text-[#053889] grid gap-y-4">
+              <form class="mt-8 md:text-[#053889] grid gap-y-4">
                 <div class="relative z-20">
-                  <label for="btc_amount">{{ selected.label }} Amount</label>
+                  <div class="flex justify-between">
+                    <label for="btc_amount">{{ selected.label }} Amount</label>
+                    <p class="opacity-85 text-sm">min:{{currentRate?.minimumOrder?.[activeStatus]}}</p>
+                  </div>
                   <div class="relative mt-2">
                     <input id="btc_amount"
                            v-model="amount"
@@ -74,6 +77,7 @@
                            placeholder="0.00"/>
                     <USelectMenu class="absolute right-[6px] text-[#053889] top-[50%] translate-y-[-50%]"
                                  v-model="selectedCountry"
+                                 disabled
                                  :ui="{ base: 'bg-transparent', ring: '!ring-0', shadow: 'shadow-none'}" color="white"
                                  variant="none" :options="countries">
                       <template #leading>
@@ -99,16 +103,17 @@
                 </div>
               </form>
             </div>
-            <nuxt-link to="/" class="py-4 px-6 text-center bg-[#053889] rounded-[9px] text-white h-[60px]">Continue
-              buying
+            <nuxt-link :to="`${config.public.appUrl}/order/start`" class="py-4 px-6 mt-10 text-center bg-[#053889] rounded-[9px] text-white h-[60px]">Continue
+              <span v-if="activeStatus === 'sell'">selling</span> <span v-else>buying</span>
             </nuxt-link>
           </div>
         </iPhone15ProMockup>
       </div>
       <div class="">
-        <h3 class="text-5xl font-semibold">Empowering Every Corner of the Globe</h3>
+        <h3 class="md:text-5xl text-4xl font-semibold">Empowering Every Corner of the Globe</h3>
         <p class="mb-5 font-light text-lg">From Lagos to London, We’re Redefining Financial Inclusion</p>
-        <p class="text-2xl">SenexPay bridges borders-access crypto in your local currency, send value globally in
+        <p class="md:text-2xl text-xl">SenexPay bridges borders-access crypto in your local currency, send value
+          globally in
           seconds, and reclaim financial freedom, no matter where you are.</p>
       </div>
     </div>
@@ -117,8 +122,8 @@
       class="min-h-[80vh] py-[60px] bg-gradient-to-b from-background to-[hsl(var(--page-background))]/0">
     <div class="container grid lg:grid-cols-2 gap-10 items-center">
       <div class="">
-        <h3 class="text-5xl mb-6 font-semibold">We are serious about security!</h3>
-        <p class="text-2xl">
+        <h3 class="md:text-5xl text-4xl mb-6 font-semibold">We are serious about security!</h3>
+        <p class="md:text-2xl text-xl">
           Trade in your pajamas knowing we’ve got 24/7 crypto babysitters, encryption blankets, and a strict "Don’t
           Touch My Stuff" policy. Security shouldn’t feel like homework
         </p>
@@ -142,13 +147,14 @@
       <div
           class="px-4 py-6 bg-gradient-to-b from-[hsl(var(--page-background))]/0 to-background rounded-[23px] grid lg:grid-cols-2 gap-10 items-stretch">
         <div>
-          <img src="/senex-plus.png" alt="SenexPlus Image"/>
+          <img src="/senex-plus.png" class="h-full w-full object-cover border-[10px] border-[#51504E]/50 rounded-[23px]"
+               alt="SenexPlus Image"/>
         </div>
-        <div class="relative flex items-center">
+        <div class="relative flex items-center py-20">
           <img class="absolute top-[20px] h-8 right-[20px]" src="/senex+.png" alt="SenexPlus Logo"/>
           <div>
-            <h3 class="text-5xl mb-6 font-semibold">Enjoy VIP banking with SenexPlus</h3>
-            <p class="text-2xl">
+            <h3 class="md:text-5xl text-4xl mb-6 font-semibold">Enjoy VIP banking with SenexPlus</h3>
+            <p class="md:text-2xl text-xl">
               Discover a more private way to settle your global remittances, FX, stocks and investment transactions
               delivered securely and exclusively anywhere at anytime.
             </p>
@@ -169,7 +175,7 @@
   <article class="min-h-[80vh]">
     <section class=" py-[60px] bg-background">
       <div class="container flex-col flex items-center">
-        <h3 class="text-5xl font-bold text-center max-w-[420px] mb-4">
+        <h3 class="md:text-5xl text-4xl font-bold text-center max-w-[420px] mb-4">
           Simple dashboard,
           powerful features
         </h3>
@@ -182,7 +188,7 @@
     <section class="relative py-[60px] bg-center bg-contain bg-no-repeat"
              style="background-image: url('/why-senex.svg'), linear-gradient(to bottom, hsl(var(--background)) 0%, rgba(134,79,255,0.2) 30%, hsl(var(--background)) 100%);">
       <div class="container relative">
-        <h3 class="mx-auto mb-2 text-balance text-center md:text-6xl text-5xl font-bold tracking-tight">
+        <h3 class="mx-auto mb-2 text-balance text-center md:text-6xl text-4xl font-bold tracking-tight">
           Why people love SenexPay
         </h3>
         <p class="text-center text-xl">We just wanna make crypto exchange stress-free.</p>
@@ -190,10 +196,10 @@
           <div class="relative">
             <div
                 class="relative border-[10px] border-[#123061] flex h-full flex-col items-start justify-center overflow-hidden bg-gradient-to-b from-background to-[hsl(var(--page-background))] rounded-[23px] p-10 py-16">
-              <img class="h-22 mb-16" src="/simple_to_use.svg" alt="Simple to use image">
+              <img class="h-22 w-[51px] mb-6" src="/simple_to_use.svg" alt="Simple to use image">
               <div class="">
-                <h3 class="text-4xl mb-12 font-semibold">Simple to use</h3>
-                <p class="text-3xl">If you can read ‘A-Z’, then you can use SenexPay for your crypto exchange. Easy
+                <h3 class="text-3xl mb-6 font-semibold">Simple to use</h3>
+                <p class="text-2xl">If you can read ‘A-Z’, then you can use SenexPay for your crypto exchange. Easy
                   stuff.</p>
               </div>
             </div>
@@ -203,10 +209,10 @@
               <div
                   class="relative border-[10px] border-[#123061] overflow-hidden bg-gradient-to-b from-background to-[hsl(var(--page-background))] rounded-[23px]  p-10 py-16">
                 <div class="flex flex-col lg:flex-row gap-10 items-start lg:gap-16">
-                  <img class="h-22 mb-16" src="/swif_transactions.svg" alt="Swift Transactions">
+                  <img class="h-22 w-[51px] mb-6" src="/swif_transactions.svg" alt="Swift Transactions">
                   <div class="">
-                    <h3 class="text-4xl mb-12 font-semibold">Swift transactions</h3>
-                    <p class="text-3xl">We know how much you hate to wait. Enjoy the power of instant payment on
+                    <h3 class="text-3xl mb-6 font-semibold">Swift transactions</h3>
+                    <p class="text-xl">We know how much you hate to wait. Enjoy the power of instant payment on
                       SenexPay.
                     </p>
                   </div>
@@ -217,10 +223,10 @@
               <div
                   class="relative border-[10px] border-[#123061] flex h-full flex-col overflow-hidden bg-gradient-to-b from-background to-[hsl(var(--page-background))] rounded-[23px] p-10 py-16">
                 <div class="flex flex-col lg:flex-row gap-10 items-start lg:gap-16">
-                  <img class="h-22 mb-16" src="/support.svg" alt="Award-winning Support">
+                  <img class="h-22 w-[51px] mb-6" src="/support.svg" alt="Award-winning Support">
                   <div class="">
-                    <h3 class="text-4xl mb-12 font-semibold">Award-winning Support</h3>
-                    <p class="text-3xl">We’re ready and waiting 24/7 to answer your questions and solve your
+                    <h3 class="text-3xl mb-6 font-semibold">Award-winning Support</h3>
+                    <p class="text-2xl">We’re ready and waiting 24/7 to answer your questions and solve your
                       problems.</p>
                   </div>
                 </div>
@@ -231,14 +237,14 @@
       </div>
     </section>
   </article>
-  <section class="min-h-[80vh] py-[60px] bg-background">
+  <section class="min-h-[80vh] py-[60px] flex items-center bg-background">
     <div class="container grid lg:grid-cols-2 gap-20 items-center">
       <div class="">
         <h4 class="text-2xl inline-block font-medium bg-gradient-to-r from-custom-purple to-custom-blue text-transparent bg-clip-text mb-4">
           Virtual Event
         </h4>
-        <h3 class="text-5xl mb-6 font-semibold">Getting Into Crypto?</h3>
-        <p class="text-2xl">
+        <h3 class="text-3xl mb-6 font-semibold">Getting Into Crypto?</h3>
+        <p class="text-xl">
           Do you need guidance on how to start investing and earning in cryptocurrency? Worry no more! Join other
           crypto newbies in the weekly session with our Crypto experts.
         </p>
@@ -268,8 +274,8 @@
         <img src="/capBg.png" alt="Campus Ambassador image"/>
       </div>
       <div class="">
-        <h3 class="text-5xl mb-6 font-semibold">Supercharge your career!</h3>
-        <p class="text-2xl">
+        <h3 class="md:text-5xl text-4xl mb-6 font-semibold">Supercharge your career!</h3>
+        <p class="md:text-2xl text-xl">
           Sign up for our Campus Ambassadors Program (CAP) to join Africa's leading blockchain company pioneering the
           digital financial revolution in Africa as a student representative on your campus.
         </p>
@@ -289,8 +295,8 @@
         <h4 class="text-2xl inline-block font-medium bg-gradient-to-r from-custom-purple to-custom-blue text-transparent bg-clip-text mb-4">
           Referral
         </h4>
-        <h3 class="text-5xl mb-6 font-semibold">Cash out Fast!</h3>
-        <p class="text-2xl">
+        <h3 class="md:text-5xl text-4xl mb-6 font-semibold">Cash out Fast!</h3>
+        <p class="md:text-2xl text-xl">
           Earn up to 5 USD each time you invite a friend to register and perform a transaction on SenexPay. There is
           no limit to what you can earn!
         </p>
@@ -307,7 +313,7 @@
   </section>
   <section class="min-h-[50vh] py-[60px] bg-background">
     <div class="container px-12">
-      <h3 class="mx-auto mb-16 text-balance text-center text-5xl font-bold tracking-tight">
+      <h3 class="mx-auto mb-16 text-balance text-center md:text-5xl text-4xl font-bold tracking-tight">
         What customers say about us
       </h3>
       <TestimonialSlider :testimonials="testimonies"/>
@@ -315,7 +321,7 @@
   </section>
   <section class="min-h-[50vh] py-[60px] bg-background">
     <div class="container px-12">
-      <h3 class="mx-auto mb-16 text-balance text-center text-5xl font-bold tracking-tight">
+      <h3 class="mx-auto mb-16 text-balance text-center md:text-5xl text-4xl font-bold tracking-tight">
         We are In The News
       </h3>
       <!-- First Marquee -->
@@ -340,15 +346,14 @@
           class="pointer-events-none absolute inset-y-0 right-0 w-1/3 bg-gradient-to-l from-white dark:from-background"
       ></div>
     </div>
-    <div data-id="zsalesiq" />
+    <div data-id="zsalesiq"/>
   </section>
 </template>
 <script setup lang="ts">
-import testimonials from '~/data/testimonials'
 import {rand} from "@vueuse/core";
-import rates from "~/data/rates";
 import type {Avatar} from "#ui/types";
-import { ref } from 'vue';
+import {ref} from 'vue';
+import {useTestimonials} from "~/composables/useTestimonials";
 
 const activeStatus = ref<'buy' | 'sell'>('buy');
 
@@ -360,6 +365,99 @@ definePageMeta({
   layout: 'home'
 })
 
+// SEO Configuration
+const {setPageSEO, setJSONLD} = useSEO()
+
+setPageSEO({
+  title: 'SenexPay: Buy, Sell & Store Bitcoin, Ethereum and USDT in Nigeria',
+  description: `SenexPay is the easiest and most reliable platform to exchange cryptocurrency. We are building Africa's biggest cross-border payments infrastructure. Pay seamlessly with Senex today!`,
+  keywords: 'bitcoin, exchange, transfer, tether, trade, btc, sell, buy, nigeria, sell bitcoin, buy bitcoin, otc, buy bitcoins in nigeria, sell bitcoins in nigeria, fast, secure, reliable, senex, senexpay, senex payment services, money, credit card, debit card, payment, buy bitcoin with card, blockchain, network, block, hash, confirmations, KYC, 24/7 exchange, currency exchange, crypto exchange, senex services payment',
+  ogTitle: 'SenexPay: Buy, Sell & Store Bitcoin, USDT and more',
+  ogDescription: `SenexPay is the easiest and most reliable platform to exchange cryptocurrency. We are building Africa's biggest cross-border payments infrastructure.`,
+  ogImage: '/img/senexpay-og-image.png',
+  ogUrl: 'https://senexpay.com/',
+  twitterTitle: 'SenexPay: Buy, Sell & Store Bitcoin, USDT and more',
+  twitterDescription: `SenexPay is the easiest and most reliable platform to exchange cryptocurrency. We are building Africa's biggest cross-border payments infrastructure.`,
+  twitterImage: '/img/senexpay-og-image-sq.png',
+  canonical: 'https://senexpay.com/',
+  type: 'website'
+})
+
+// Set homepage-specific JSON-LD structured data
+setJSONLD([
+  {
+    '@type': 'WebPage',
+    '@id': 'https://senexpay.com/#webpage',
+    isPartOf: {'@id': 'https://senexpay.com/#website'},
+    url: 'https://senexpay.com/',
+    inLanguage: 'en-US',
+    name: 'SenexPay: Buy, Sell & Store Bitcoin, Ethereum and USDT',
+    about: {
+      '@id': 'https://senexpay.com/#organization'
+    },
+    dateModified: new Date().toISOString(),
+    description: `SenexPay is the easiest and most reliable platform to exchange cryptocurrency. We are building Africa's biggest cross-border payments infrastructure.`,
+    potentialAction: [
+      {
+        '@type': 'SearchAction',
+        target: {
+          '@type': 'EntryPoint',
+          urlTemplate: 'https://senexpay.com/search?q={search_term_string}'
+        },
+        'query-input': 'required name=search_term_string'
+      },
+      {
+        '@type': 'TradeAction',
+        object: {
+          '@type': 'Service',
+          name: 'Cryptocurrency Exchange',
+          provider: {'@id': 'https://senexpay.com/#organization'}
+        }
+      }
+    ]
+  },
+  {
+    '@type': 'Service',
+    '@id': 'https://senexpay.com/#service',
+    serviceType: 'Cryptocurrency Exchange',
+    provider: {'@id': 'https://senexpay.com/#organization'},
+    areaServed: ['NG', 'ZA', 'GH', 'AE', 'GB'],
+    hasOfferCatalog: {
+      '@type': 'OfferCatalog',
+      name: 'Cryptocurrency Trading Services',
+      itemListElement: [
+        {
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: 'Bitcoin Trading'
+          }
+        },
+        {
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: 'USDT Trading'
+          }
+        },
+        {
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: 'Ethereum Trading'
+          }
+        }
+      ]
+    }
+  }
+])
+
+// Use composables for rates and testimonials
+const {data: rates, fetchRates} = useRates()
+const {data: testimonies, fetchTestimonials} = useTestimonials()
+await fetchRates();
+await fetchTestimonials();
+
 interface Testimonial {
   photo: string;
   reviewText: string;
@@ -367,14 +465,8 @@ interface Testimonial {
 }
 
 const colorMode = useColorMode();
-const testimonies = ref<Testimonial[]>(testimonials)
 onMounted(async () => {
   colorMode.preference = 'dark';
-
-  await useFetch(`${config.public.apiUrl}/testimonials/`).then((res) => {
-    console.log('res.data is', res.data.value)
-    testimonies.value = (res.data.value as Testimonial[]) ?? testimonials;
-  })
 })
 
 const amount = ref(0)
@@ -408,51 +500,51 @@ const countries = [{
 const selected = ref(coins[0])
 const selectedCountry = ref(countries[0])
 
-const currency = computed(()=> selectedCountry.value.id === 'naira' ? 'NGN' : 'ZAR')
-const coin = computed(()=>selected.value.id.toUpperCase())
+const currency = computed(() => selectedCountry.value.id === 'naira' ? 'NGN' : 'ZAR')
+const coin = computed(() => selected.value.id.toUpperCase())
 const currentRate = computed(() => {
-  return rates[`${coin.value}_${currency.value}`]
+  return rates.value[`${coin.value}_${currency.value}`]
 })
 
-const notifications = ref([
+const notifications = computed(() => [
   {
     name: "Bitcoin (BTC)",
-    price: rates[`BTC_${currency.value.toUpperCase()}`].buy.toLocaleString() + " " + currency.value,
+    price: rates.value[`BTC_${currency.value.toUpperCase()}`]?.buy?.toLocaleString() + " " + currency.value,
     mode: "Buy",
     icon: "btc",
     color: "#f7931a",
   },
   {
     name: "Tether (USDT)",
-    price: rates[`USDT_${currency.value.toUpperCase()}`].sell.toLocaleString() + " " + currency.value,
+    price: rates.value[`USDT_${currency.value.toUpperCase()}`]?.sell?.toLocaleString() + " " + currency.value,
     mode: "Sell",
     icon: "usdt",
     color: "#26a17b",
   },
   {
     name: "Tron (TRX)",
-    price: rates[`TRON_${currency.value.toUpperCase()}`].buy.toLocaleString() + " " + currency.value,
+    price: rates.value[`TRON_${currency.value.toUpperCase()}`]?.buy?.toLocaleString() + " " + currency.value,
     mode: "Buy",
     icon: "trx",
     color: "#ef0027",
   },
   {
     name: "Bitcoin (BTC)",
-    price: rates[`BTC_${currency.value.toUpperCase()}`].sell.toLocaleString() + " " + currency.value,
+    price: rates.value[`BTC_${currency.value.toUpperCase()}`]?.sell?.toLocaleString() + " " + currency.value,
     mode: "Sell",
     icon: "btc",
     color: "#f7931a",
   },
   {
     name: "Tether (USDT)",
-    price: rates[`USDT_${currency.value.toUpperCase()}`].buy.toLocaleString() + " " + currency.value,
+    price: rates.value[`USDT_${currency.value.toUpperCase()}`]?.buy?.toLocaleString() + " " + currency.value,
     mode: "Buy",
     icon: "usdt",
     color: "#26a17b",
   },
   {
     name: "Tron (TRX)",
-    price: rates[`TRON_${currency.value.toUpperCase()}`].sell.toLocaleString() + " " + currency.value,
+    price: rates.value[`TRON_${currency.value.toUpperCase()}`]?.sell?.toLocaleString() + " " + currency.value,
     mode: "Sell",
     icon: "trx",
     color: "#ef0027",
@@ -500,8 +592,8 @@ watch([amount, selected, selectedCountry, activeStatus], () => {
   const rate = currentRate.value
   if (rate) {
     // Calculate USD equivalent
-    usdAmount.value = parseFloat((amount.value as unknown as string)) * rate.USD_NGN[activeStatus.value];
-    localAmount.value = parseFloat((amount.value as unknown as string)) * rate[activeStatus.value];
+    usdAmount.value = parseFloat((amount.value as unknown as string)) * rate.USD_NGN?.[activeStatus.value] || 0;
+    localAmount.value = parseFloat((amount.value as unknown as string)) * rate[activeStatus.value] || 0;
   }
 })
 

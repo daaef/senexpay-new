@@ -166,7 +166,52 @@
 </template>
 <script setup lang="ts">
 import type {Avatar} from "#ui/types";
-import teamMembers from "~/data/teamMembers";
+import teamMembers from "@/data/teamMembers";
+
+// SEO Configuration
+const { setPageSEO, setJSONLD, getAboutPageSchema } = useSEO()
+
+setPageSEO({
+  title: 'About SenexPay - Our Mission, Vision and Core Values',
+  description: 'Learn about SenexPay\'s mission to make financial services accessible to every person on the African continent. Established in 2016, we\'re building Africa\'s biggest cross-border payments infrastructure.',
+  keywords: 'senexpay about, mission, vision, values, african fintech, blockchain startup, crypto exchange company, financial inclusion africa, cross-border payments',
+  ogTitle: 'About SenexPay - Our Mission, Vision and Core Values',
+  ogDescription: 'Learn about SenexPay\'s mission to make financial services accessible to every person on the African continent.',
+  ogUrl: 'https://senexpay.com/about',
+  canonical: 'https://senexpay.com/about',
+  type: 'website'
+})
+
+// Set About page JSON-LD structured data
+setJSONLD([
+  getAboutPageSchema(),
+  {
+    '@type': 'Corporation',
+    '@id': 'https://senexpay.com/about/#company',
+    name: 'SenexPay',
+    foundingDate: '2016-01-01',
+    foundingLocation: {
+      '@type': 'Place',
+      name: 'Lagos, Nigeria'
+    },
+    mission: 'To make financial services accessible to every person on the African continent',
+    numberOfEmployees: {
+      '@type': 'QuantitativeValue',
+      value: 50
+    },
+    knowsAbout: [
+      'Blockchain Technology',
+      'Cryptocurrency Exchange',
+      'Financial Inclusion',
+      'Cross-border Payments',
+      'Digital Assets'
+    ],
+    award: [
+      'Best Crypto Exchange Platform Nigeria 2023',
+      'Fintech Innovation Award 2022'
+    ]
+  }
+])
 
 const colorMode = useColorMode();
 

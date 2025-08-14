@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import DownloadApp from "~/components/DownloadApp.vue";
+import DownloadApp from "@/components/DownloadApp.vue";
 </script>
 
 <template>
