@@ -581,21 +581,124 @@ const reviews = [
   },
 ];
 
-// Add watch effect for amount calculations
-watch([amount, selected, selectedCountry, activeStatus], () => {
-  if (!amount.value) {
-    usdAmount.value = 0
-    localAmount.value = 0
+// Replace the existing watch effect and add these reactive references and computed properties
+
+// Add a flag to prevent circular updates
+const isUpdating = ref(false)
+
+// Add individual watchers for each input field
+watch(amount, (newAmount) => {
+  if (isUpdating.value || !newAmount) {
+    if (!newAmount) {
+      usdAmount.value = 0
+      localAmount.value = 0
+    }
     return
   }
+  
+  updateFromCryptoAmount(newAmount)
+})
 
-  const rate = currentRate.value
-  if (rate) {
-    // Calculate USD equivalent
-    usdAmount.value = parseFloat((amount.value as unknown as string)) * rate.USD_NGN?.[activeStatus.value] || 0;
-    localAmount.value = parseFloat((amount.value as unknown as string)) * rate[activeStatus.value] || 0;
+watch(usdAmount, (newUsdAmount) => {
+  if (isUpdating.value || !newUsdAmount) {
+    if (!newUsdAmount) {
+      amount.value = 0
+      localAmount.value = 0
+    }
+    return
+  }
+  
+  updateFromUsdAmount(newUsdAmount)
+})
+
+watch(localAmount, (newLocalAmount) => {
+  if (isUpdating.value || !newLocalAmount) {
+    if (!newLocalAmount) {
+      amount.value = 0
+      usdAmount.value = 0
+    }
+    return
+  }
+  
+  updateFromLocalAmount(newLocalAmount)
+})
+
+// Watch for currency or coin changes to recalculate
+watch([selected, selectedCountry, activeStatus], () => {
+  if (amount.value) {
+    updateFromCryptoAmount(amount.value)
+  } else if (usdAmount.value) {
+    updateFromUsdAmount(usdAmount.value)
+  } else if (localAmount.value) {
+    updateFromLocalAmount(localAmount.value)
   }
 })
+
+// Conversion functions
+function updateFromCryptoAmount(cryptoAmount) {
+  isUpdating.value = true
+  
+  const rate = currentRate.value
+  if (rate && rate.USD_NGN) {
+    // Convert crypto to USD first, then to local currency
+    const usdRate = rate.USD_NGN[activeStatus.value]
+    const localRate = rate[activeStatus.value]
+    
+    if (usdRate && localRate) {
+      // Calculate USD equivalent: crypto_amount * (local_rate / usd_rate)
+      const calculatedUsdAmount = parseFloat(cryptoAmount) * (localRate / usdRate)
+      usdAmount.value = Math.round(calculatedUsdAmount * 100) / 100
+      
+      // Calculate local currency equivalent: crypto_amount * local_rate
+      localAmount.value = Math.round(parseFloat(cryptoAmount) * localRate * 100) / 100
+    }
+  }
+  
+  isUpdating.value = false
+}
+
+function updateFromUsdAmount(usdAmountValue) {
+  isUpdating.value = true
+  
+  const rate = currentRate.value
+  if (rate && rate.USD_NGN) {
+    const usdRate = rate.USD_NGN[activeStatus.value]
+    const localRate = rate[activeStatus.value]
+    
+    if (usdRate && localRate) {
+      // Calculate crypto amount: usd_amount / (local_rate / usd_rate)
+      const calculatedCryptoAmount = parseFloat(usdAmountValue) / (localRate / usdRate)
+      amount.value = Math.round(calculatedCryptoAmount * 100000000) / 100000000 // 8 decimal places for crypto
+      
+      // Calculate local currency: usd_amount * usd_rate
+      localAmount.value = Math.round(parseFloat(usdAmountValue) * usdRate * 100) / 100
+    }
+  }
+  
+  isUpdating.value = false
+}
+
+function updateFromLocalAmount(localAmountValue) {
+  isUpdating.value = true
+  
+  const rate = currentRate.value
+  if (rate && rate.USD_NGN) {
+    const usdRate = rate.USD_NGN[activeStatus.value]
+    const localRate = rate[activeStatus.value]
+    
+    if (usdRate && localRate) {
+      // Calculate crypto amount: local_amount / local_rate
+      const calculatedCryptoAmount = parseFloat(localAmountValue) / localRate
+      amount.value = Math.round(calculatedCryptoAmount * 100000000) / 100000000 // 8 decimal places for crypto
+      
+      // Calculate USD amount: local_amount / usd_rate
+      const calculatedUsdAmount = parseFloat(localAmountValue) / usdRate
+      usdAmount.value = Math.round(calculatedUsdAmount * 100) / 100
+    }
+  }
+  
+  isUpdating.value = false
+}
 
 // Split reviews into two rows
 const firstRow = ref(reviews);
