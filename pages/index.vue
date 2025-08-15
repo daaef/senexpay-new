@@ -47,10 +47,7 @@
               </div>
               <form class="mt-8 md:text-[#053889] grid gap-y-4">
                 <div class="relative z-20">
-                  <div class="flex justify-between">
-                    <label for="btc_amount">{{ selected.label }} Amount</label>
-                    <p class="opacity-85 text-sm">min:{{currentRate?.minimumOrder?.[activeStatus]}}</p>
-                  </div>
+                  <label for="btc_amount">{{ selected.label }} Amount</label>
                   <div class="relative mt-2">
                     <input id="btc_amount"
                            v-model="amount"
